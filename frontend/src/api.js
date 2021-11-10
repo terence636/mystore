@@ -21,6 +21,26 @@ export const getProduct = async (id) => {
   }
 };
 
+export const getProductSpring = async (id) => {
+  try {
+    const response = await fetch(`${apiUrlSpring}/api/products/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      const msg = JSON.parse(await response.text());
+      throw new Error(`${response.status} ${msg.message}`);
+    }
+    return await response.json();
+    // return data;
+  } catch (err) {
+    console.log(err);
+    return { error: err.message };
+  }
+};
+
 export const getProducts = async ({ searchKeyword = "" }) => {
   try {
     let queryString = "?";
@@ -45,8 +65,10 @@ export const getProducts = async ({ searchKeyword = "" }) => {
 
 // { email, password })
 export const signin = async (params) => {
+
   try {
     const response = await fetch(`${apiUrl}/api/users/signin`, {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json",

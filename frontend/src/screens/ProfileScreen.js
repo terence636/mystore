@@ -25,7 +25,8 @@ const ProfileScreen = {
         if (data.error) {
           showMessage(data.error);
         } else {
-          setUserInfo(data);
+          const { token } = getUserInfo();
+          setUserInfo( { ...data, token } );
           redirectUser();
         }
       });

@@ -9,7 +9,8 @@ const SigninScreen = {
       .addEventListener("submit", async (e) => {
         e.preventDefault();
         showLoading();
-        const data = await signinSpring({
+        // const data = await signinSpring({
+        const data = await signin({
           email: document.getElementById("email").value,
           password: document.getElementById("password").value,
         });

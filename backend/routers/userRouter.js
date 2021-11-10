@@ -59,38 +59,36 @@ userRouter.post(
     }
   });
 
-  userRouter.post(
-    "/register",
-    async (req, res) => {
-      const newUser = await User.findOne({
-        email: req.body.email,
-      });
-      if(newUser) {
-        res.status(409).send({
-          message: "User Already Registered",
-        });
-        return;
-      }
-      const user = new User({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-      });
-      const createdUser = await user.save();
-      if (!createdUser) {
-        res.status(403).send({
-          message: "Invalid User Data",
-        });
-      } else {
-        res.status(201).send({
-          _id: createdUser._id,
-          name: createdUser.name,
-          email: createdUser.email,
-          isAdmin: createdUser.isAdmin,
-          token: generateToken(createdUser),
-        });
-      }
+  userRouter.post("/register", async (req, res) => {
+    const newUser = await User.findOne({
+      email: req.body.email,
     });
+    if (newUser) {
+      res.status(409).send({
+        message: "User Already Registered",
+      });
+      return;
+    }
+    const user = new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+    });
+    const createdUser = await user.save();
+    if (!createdUser) {
+      res.status(403).send({
+        message: "Invalid User Data",
+      });
+    } else {
+      res.status(201).send({
+        _id: createdUser._id,
+        name: createdUser.name,
+        email: createdUser.email,
+        isAdmin: createdUser.isAdmin,
+        // token: generateToken(createdUser),
+      });
+    }
+  });
 
     userRouter.put("/:id", 
     isAuth,
