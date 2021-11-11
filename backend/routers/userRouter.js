@@ -1,6 +1,7 @@
 import express from "express";
 import User from "../models/userModel";
-import { generateToken, isAuth } from "../utils.js";
+// import { generateToken, isAuth } from "../utils.js";
+import { generateToken } from "../utils.js";
 
 const userRouter = express.Router();
 
@@ -91,7 +92,7 @@ userRouter.post(
   });
 
     userRouter.put("/:id", 
-    isAuth,
+    // isAuth,
     async (req, res) => {
       console.log(req.body)
       console.log(req.params.id)
