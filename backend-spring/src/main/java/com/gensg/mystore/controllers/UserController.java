@@ -5,6 +5,7 @@ import com.gensg.mystore.service.UsersService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -93,8 +94,8 @@ public class UserController
         {
             String token = generateToken( loginDetails.getEmail());
             AuthUserResponseBody authUser = new AuthUserResponseBody(user.getId(),user.getName(), user.getEmail(), user.getIsAdmin(), token);
-//            return new ResponseEntity<AuthUserResponseBody>(authUser, HttpStatus.ACCEPTED);
-            return ResponseEntity.ok(authUser);
+            return new ResponseEntity<AuthUserResponseBody>(authUser, HttpStatus.ACCEPTED);
+//            return ResponseEntity.ok(authUser);
         }
 
         throw new ServletException( "Invalid login. Please check your email and password." );
@@ -121,15 +122,15 @@ public class UserController
             Users registeredUser = usersService.register( registerDetails );
             String token = generateToken( registerDetails.getEmail());
             AuthUserResponseBody authUser = new AuthUserResponseBody(registeredUser.getId(),registeredUser.getName(), registeredUser.getEmail(), registeredUser.getIsAdmin(), token);
-//            return new ResponseEntity<AuthUserResponseBody>(authUser, HttpStatus.ACCEPTED);
-            return ResponseEntity.ok(authUser);
+            return new ResponseEntity<AuthUserResponseBody>(authUser, HttpStatus.CREATED);
+//            return ResponseEntity.ok(authUser);
         }
 
         throw new ServletException( "Registration fail. User already registered." );
     }
 
-    @PutMapping( "/api/users" )
-    public ResponseEntity<?> update( @RequestParam Long id, @RequestBody Users userDetails ) {
+    @PutMapping( "/api/users/{id}" )
+    public ResponseEntity<?> update( @PathVariable Long id, @RequestBody Users userDetails ) throws ServletException {
         Users user = usersService.getUsers(id);
         user.setName(userDetails.getName());
         user.setEmail(userDetails.getEmail());

@@ -19,7 +19,7 @@ export const isAuth = (req,res,next) => {
     const token = bearerToken.slice(7, bearerToken.length);
     jwt.verify(token, config.JWT_SECRET, (err, data) => {
       if(err) {
-        res.status(401).send({ message: 'Invalid Tolen'});
+        res.status(401).send({ message: 'Invalid Token'});
       } else {
         req.user = data;
         next();

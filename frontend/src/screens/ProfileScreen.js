@@ -32,7 +32,7 @@ const ProfileScreen = {
       });
   },
   render: async () => {
-    const {name, email} = getUserInfo();
+    const {name, email } = getUserInfo();
     if (!name) {
       document.location.hash = "/";
     }
