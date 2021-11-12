@@ -3,7 +3,7 @@ import { getUserInfo } from "./localStorage.js"
 
 export const getProductSpring = async (id) => {
   try {
-    const response = await fetch(`${apiUrlSpring}/api/products/${id}`, {
+    const response = await fetch(`${UrlSpring}/api/products/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export const getProductsSpring = async ({ searchKeyword = "" }) => {
 // { email, password })
 export const signinSpring = async (params) => {
   try {
-    const response = await fetch(`${apiUrlSpring}/users/auth`, {
+    const response = await fetch(`${UrlSpring}/users/auth`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export const signinSpring = async (params) => {
 
 export const registerSpring = async ({ name, email, password }) => {
   try {
-    const response = await fetch(`${apiUrlSpring}/api/users/register`, {
+    const response = await fetch(`${UrlSpring}/api/users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
