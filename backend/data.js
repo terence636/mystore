@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      _id: "111111111111111111111111",
+      id: "111111111111111111111111",
       name: "Full Zip Running Shirts",
       category: "Shirts",
       image: "./images/product-1.jpg",
@@ -10,11 +10,11 @@ const data = {
       rating: 1.5,
       numReviews: 5,
       description:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, iure perspiciatis! Molestiae accusamus quae dolores. Eligendi expedita iure error voluptatem iste sint rerum id natus. Sunt nostrum quasi tenetur et?",
+        "Full Zip Running Shirts. Eum, iure perspiciatis! Molestiae accusamus quae dolores. Eligendi expedita iure error voluptatem iste sint rerum id natus. Sunt nostrum quasi tenetur et?",
       countInStock: 6,
     },
     {
-      _id: "222222222222222222222222",
+      id: "222222222222222222222222",
       name: "Full Zip Running Shirts",
       category: "Shirts",
       image: "./images/product-2.jpg",
@@ -27,7 +27,7 @@ const data = {
       countInStock: 6,
     },
     {
-      _id: "333333333333333333333333",
+      id: "333333333333333333333333",
       name: "Adidas Mens Long Sleeve Hoodie",
       category: "Shirts",
       image: "./images/product-3.jpg",
@@ -40,7 +40,7 @@ const data = {
       countInStock: 6,
     },
     {
-      _id: "444444444444444444444444",
+      id: "444444444444444444444444",
       name: "Full Zip Running Shirts",
       category: "Shirts",
       image: "./images/product-4.jpg",
@@ -53,7 +53,7 @@ const data = {
       countInStock: 6,
     },
     {
-      _id: "555555555555555555555555",
+      id: "555555555555555555555555",
       name: "Full Zip Running Shirts",
       category: "Shirts",
       image: "./images/product-5.jpg",
@@ -66,7 +66,7 @@ const data = {
       countInStock: 6,
     },
     {
-      _id: "6666666666666666666666666666",
+      id: "6666666666666666666666666666",
       name: "Full Zip Running Shirts",
       category: "Shirts",
       image: "./images/product-6.jpg",

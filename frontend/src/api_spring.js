@@ -66,7 +66,7 @@ export const signinSpring = async (params) => {
 
 export const registerSpring = async ({ name, email, password }) => {
   try {
-    const response = await fetch(`${apiUrlSpring}/api/users/register`, {
+    const response = await fetch(`${apiUrlSpring}/users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

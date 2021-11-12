@@ -1,4 +1,5 @@
-import { getProduct } from "../api.js";
+// import { getProduct } from "../api.js";
+import { getProductSpring } from "../api_spring.js";
 import { hideLoading, parseRequestUrl, showLoading } from "../utils.js";
 import Rating from "../components/Rating.js";
 
@@ -12,7 +13,7 @@ const ProductScreen = {
   render: async () => {
     const request = parseRequestUrl();
     showLoading();
-    const product = await getProduct(request.id);
+    const product = await getProductSpring(request.id);
     hideLoading();
     if(product.error){
       return `<div>${product.error}</div>`

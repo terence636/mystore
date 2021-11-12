@@ -1,4 +1,6 @@
-import { register } from '../api.js';
+// import { register } from '../api.js';
+import { registerSpring } from "../api_spring.js";
+import { register } from "../api.js"
 import { getUserInfo, setUserInfo } from '../localStorage.js';
 import { showLoading, hideLoading, showMessage, redirectUser } from '../utils.js';
 
@@ -21,7 +23,12 @@ const RegisterScreen = {
         e.preventDefault();
         if (!validateForm()) return;
         showLoading();
-        const data = await register({
+        await register({
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+        });
+        const data = await registerSpring({
           name: document.getElementById('name').value,
           email: document.getElementById('email').value,
           password: document.getElementById('password').value,
