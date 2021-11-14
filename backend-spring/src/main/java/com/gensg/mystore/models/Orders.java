@@ -1,10 +1,12 @@
 package com.gensg.mystore.models;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import java.util.Date;
 
 @Entity
 public class Orders {
@@ -21,6 +23,8 @@ public class Orders {
     private String paymentMethod;
 //    private Boolean isPaid;
 //    private Boolean isDelivered;
+    @CreationTimestamp
+    private Date created_at;
 
 
     public Orders() {}
@@ -32,7 +36,9 @@ public class Orders {
         this.totalPrice = totalPrice;
         this.shippingAddress = shippingAddress;
         this.paymentMethod = paymentMethod;
+//        this.created_at = createdAt;
     }
+
 
     public void setUserId(Long userId) {
         this.userId = userId;
@@ -61,6 +67,8 @@ public class Orders {
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
+
+    public void setCreated_at(Date created_at) { this.created_at = created_at; }
 
     public Long getId() {
         return id;
@@ -92,5 +100,9 @@ public class Orders {
 
     public String getPaymentMethod() {
         return paymentMethod;
+    }
+
+    public Date getCreated_at() {
+        return created_at;
     }
 }

@@ -3,6 +3,19 @@ export const getCartItems = () =>{
   return cartItems;
 }
 
+export const getCartItemsWithoutCountInStock = () => {
+  const cartItems = localStorage.getItem("cartItems")
+    ? JSON.parse(localStorage.getItem("cartItems"))
+    : [];
+  
+    if(cartItems.length !== 0) {
+      // eslint-disable-next-line no-param-reassign
+      cartItems.forEach(item => {delete item.countInStock})
+    }
+
+  return cartItems;
+};
+
 export const setCartItems = (cartItems) => {
   localStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
@@ -43,6 +56,8 @@ export const getShipping = () => {
         postalCode: "",
         country: "",
       };
+  // const temp = JSON.parse(localStorage.getItem("shipping"));
+  // const shipping = temp ? `${temp.address} ${temp.city} ${temp.postalCode} ${temp.country}`:'';
   return shipping;
 };
 export const setShipping = ({
@@ -56,6 +71,10 @@ export const setShipping = ({
     JSON.stringify({ address, city, postalCode, country })
   );
 };
+
+// export const setShipping = (address) => {
+//   localStorage.setItem("shipping", address);
+// }
 
 export const getPayment = () => {
   const payment = localStorage.getItem("payment")

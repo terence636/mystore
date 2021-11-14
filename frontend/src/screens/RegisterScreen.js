@@ -23,11 +23,11 @@ const RegisterScreen = {
         e.preventDefault();
         if (!validateForm()) return;
         showLoading();
-        await register({
-          name: document.getElementById("name").value,
-          email: document.getElementById("email").value,
-          password: document.getElementById("password").value,
-        });
+        // await register({
+        //   name: document.getElementById("name").value,
+        //   email: document.getElementById("email").value,
+        //   password: document.getElementById("password").value,
+        // });
         const data = await registerSpring({
           name: document.getElementById('name').value,
           email: document.getElementById('email').value,

@@ -66,7 +66,6 @@ export const signin = async (params) => {
   }
 };
 
-
 export const register = async ({ name, email, password }) => {
   try {
     const response = await fetch(`${apiUrl}/api/users/register`, {

@@ -1,5 +1,6 @@
 import { parseRequestUrl, reRender }  from "../utils.js";
-import { getProduct } from '../api.js';
+// import { getProduct } from '../api.js';
+import { getProductSpring } from "../api_spring.js";
 import { getCartItems, setCartItems } from "../localStorage.js";
 
 
@@ -23,7 +24,7 @@ const addToCart = async (item, forceUpdate = false) => {
 }
 
 const removeFromCart = (id) => {
-  setCartItems(getCartItems().filter(x=>x.productId !== id))
+  setCartItems(getCartItems().filter(x=>x.productId.toString() !== id))
   // for same id with URL will need to change URL to /cart or else the item will
   // be added in again after being remove from local storage.
   // And by changing the URL, it will auto invoke the router() function again
@@ -41,7 +42,9 @@ const CartScreen = {
     const qtySelects = document.getElementsByClassName("qty-select");
     Array.from(qtySelects).forEach(qtySelect=>{
       qtySelect.addEventListener('change', (e)=>{
-        const item = getCartItems().find(x=>x.productId === qtySelect.id)
+     
+        const item = getCartItems().find(x => x.productId.toString() === qtySelect.id)
+        console.log(item);
         addToCart({...item, qty: Number(e.target.value)},true)
       })
     })
@@ -61,9 +64,9 @@ const CartScreen = {
   render: async () => {
     const request = parseRequestUrl();
     if(request.id) {
-      const product = await getProduct(request.id);
+      const product = await getProductSpring(request.id);
       addToCart({
-        productId: product._id,
+        productId: product.id,
         name: product.name,
         image: product.image,
         price: product.price,

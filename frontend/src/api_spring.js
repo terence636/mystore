@@ -180,8 +180,8 @@ export const getOrderSpring = async (id) => {
 
 export const getMyOrdersSpring = async () => {
   try {
-    const { token } = getUserInfo();
-    const response = await fetch(`${apiUrlSpring}/api/orders/mine`, {
+    const { token, _id } = getUserInfo();
+    const response = await fetch(`${apiUrlSpring}/api/orders/mine/${_id}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,

@@ -5,7 +5,8 @@ import {
   showMessage,
   reRender,
 } from '../utils.js';
-import { getOrder, getPaypalClientId, payOrder, deliverOrder } from '../api.js';
+import { getPaypalClientId, payOrder, deliverOrder } from '../api.js';
+import { getOrderSpring } from "../api_spring.js";
 import { getUserInfo } from '../localStorage.js';
 
 const handlePayment = (clientId, totalPrice) => {
@@ -93,7 +94,7 @@ const OrderScreen = {
     const {
       _id,
       shipping,
-      payment,
+      paymentMethod,
       orderItems,
       itemsPrice,
       shippingPrice,
@@ -103,10 +104,12 @@ const OrderScreen = {
       deliveredAt,
       isPaid,
       paidAt,
-    } = await getOrder(request.id);
+    } = await getOrderSpring(request.id);
     if (!isPaid) {
       addPaypalSdk(totalPrice);
     }
+    // ${shipping.address}, ${shipping.city}, ${shipping.postalCode},
+    // ${shipping.country}
     return `
     <div>
     <h1>Order ${_id}</h1>
@@ -115,8 +118,7 @@ const OrderScreen = {
           <div>
             <h2>Shipping</h2>
             <div>
-            ${shipping.address}, ${shipping.city}, ${shipping.postalCode}, 
-            ${shipping.country}
+            ${shipping}
             </div>
             ${
               isDelivered
@@ -127,7 +129,7 @@ const OrderScreen = {
           <div>
             <h2>Payment</h2>
             <div>
-              Payment Method : ${payment.paymentMethod}
+              Payment Method : ${paymentMethod}
             </div>
             ${
               isPaid
@@ -158,7 +160,7 @@ const OrderScreen = {
                 </li>
                 `
                 )
-                .join('\n')}
+                .join("\n")}
             </ul>
           </div>
         </div>
@@ -172,9 +174,9 @@ const OrderScreen = {
             <li><div class="fw" id="paypal-button"></div></li>
             <li>
               ${
-              isPaid && !isDelivered && isAdmin
-              ? `<button id="deliver-order-button" class="primary fw">Deliver Order</button>`
-              : ''
+                isPaid && !isDelivered && isAdmin
+                  ? `<button id="deliver-order-button" class="primary fw">Deliver Order</button>`
+                  : ""
               }
             </li>
           </ul>
