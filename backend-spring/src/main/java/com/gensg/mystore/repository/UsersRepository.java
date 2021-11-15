@@ -8,3 +8,4 @@ public interface UsersRepository extends CrudRepository<Users, Long> {
     @Query(value="SELECT * FROM Users WHERE email=?1", nativeQuery = true)
     public Users getUsers(String email);
 }
+

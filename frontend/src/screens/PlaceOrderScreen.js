@@ -1,24 +1,31 @@
 import {
-  getCartItems,
+  getCartItemsWithoutCountInStock,
   getShipping,
   getPayment,
   cleanCart,
+  getUserInfo,
 } from "../localStorage.js";
 import CheckoutSteps from "../components/CheckoutSteps.js";
 import { showLoading, hideLoading, showMessage } from "../utils.js";
-import { createOrder } from "../api.js";
+// import { createOrder } from "../api.js";
+import { createOrderSpring } from "../api_spring.js";
 
 const convertCartToOrder = () => {
-  const orderItems = getCartItems();
+  // const orderItems = getCartItems();
+  const orderItems = getCartItemsWithoutCountInStock();
+  console.log(orderItems)
   if (orderItems.length === 0) {
     document.location.hash = "/cart";
   }
-  const shipping = getShipping();
-  if (!shipping.address) {
+  const shippingTemp = getShipping();
+  const shipping = `${shippingTemp.address} ${shippingTemp.postalCode} ${shippingTemp.city} ${shippingTemp.country}`;
+  if (!shippingTemp.address) {
     document.location.hash = "/shipping";
-  }
-  const payment = getPayment();
-  if (!payment.paymentMethod) {
+  } 
+
+  const paymentTemp = getPayment();
+  const { paymentMethod } = paymentTemp;
+  if (!paymentTemp.paymentMethod) {
     document.location.hash = "/payment";
   }
   const itemsPrice = orderItems.reduce((a, c) => a + c.price * c.qty, 0);
@@ -28,7 +35,7 @@ const convertCartToOrder = () => {
   return {
     orderItems,
     shipping,
-    payment,
+    paymentMethod,
     itemsPrice,
     shippingPrice,
     taxPrice,
@@ -41,8 +48,12 @@ const PlaceOrderScreen = {
       .getElementById("placeorder-button")
       .addEventListener("click", async () => {
         const order = convertCartToOrder();
+        const { _id } = getUserInfo();
+        // order.user = _id;
+        order.user = 1;
         showLoading();
-        const data = await createOrder(order);
+        console.log(order);
+        const data = await createOrderSpring(order);
         hideLoading();
         if (data.error) {
           showMessage(data.error);
@@ -56,12 +67,14 @@ const PlaceOrderScreen = {
     const {
       orderItems,
       shipping,
-      payment,
+      paymentMethod,
       itemsPrice,
       shippingPrice,
       taxPrice,
       totalPrice,
     } = convertCartToOrder();
+      // ${shipping.address}, ${shipping.city}, ${shipping.postalCode}, 
+      //        ${shipping.country}
     return `
     <div>
       ${CheckoutSteps.render({
@@ -75,14 +88,13 @@ const PlaceOrderScreen = {
           <div>
             <h2>Shipping</h2>
             <div>
-            ${shipping.address}, ${shipping.city}, ${shipping.postalCode}, 
-            ${shipping.country}
+            ${shipping}
             </div>
           </div>
           <div>
             <h2>Payment</h2>
             <div>
-              Payment Method : ${payment.paymentMethod}
+              Payment Method : ${paymentMethod}
             </div>
           </div>
           <div>

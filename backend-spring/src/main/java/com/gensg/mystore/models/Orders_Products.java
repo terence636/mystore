@@ -1,43 +1,54 @@
 package com.gensg.mystore.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 @Entity
 public class Orders_Products {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 
-    private Long orderId; // FK
-    private Long productId; // FK
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @Column(columnDefinition = "CHAR(32)")
+    @Id
+    private String id;
+
+    private Long orderid; // FK
+    private Long productid; // FK
+    private Integer qty;
 
     public Orders_Products() {}
-    public Orders_Products(Long orderId, Long productId) {
-        this.orderId = orderId;
-        this.productId = productId;
+    public Orders_Products(Long orderid, Long productid, Integer qty) {
+        this.orderid = orderid;
+        this.productid = productid;
+        this.qty = qty;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Long getOrderid() {
+        return orderid;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public Long getProductid() {
+        return productid;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setOrderid(Long orderid) {
+        this.orderid = orderid;
     }
 
-    public Long getProductId() {
-        return productId;
+    public void setProductid(Long productid) {
+        this.productid = productid;
     }
+
+    public void setQty(Integer qty)  { this.qty = qty; }
+
+    public Integer getQty() { return qty; }
 }
