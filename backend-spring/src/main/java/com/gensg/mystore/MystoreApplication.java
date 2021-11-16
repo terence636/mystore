@@ -21,7 +21,7 @@ public class MystoreApplication {
 	{
 		FilterRegistrationBean<JwtFilter> registrationBean = new FilterRegistrationBean<>();
 		registrationBean.setFilter( new JwtFilter() );
-		registrationBean.addUrlPatterns( "/api/order/*" ); //blacklist - need auth
+		registrationBean.addUrlPatterns( "/api/orders/*" ); //blacklist - need auth
 		return registrationBean;
 	}
 }
