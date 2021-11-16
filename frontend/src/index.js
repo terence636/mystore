@@ -1,5 +1,6 @@
 import { hideLoading, parseRequestUrl, showLoading } from "./utils.js";
-import Header from "./components/Header.js"
+// import Header from "./components/Header.js"
+import Header from "./components/HeaderNew.js"
 import HomeScreen from "./screens/HomeScreen.js";
 import Error404Screen from "./screens/Error404Screen.js";
 import ProductScreen from "./screens/ProductScreen.js";
@@ -13,6 +14,7 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen.js";
 import OrderScreen from "./screens/OrderScreen.js";
 import DashboardScreen from "./screens/DashboardScreen.js";
 import headernew from "./screens/TestHomeScreen.js";
+import AboutUs from "./screens/AboutUs.js";
 // import ProductListScreen from "./srceens/ProductListScreen";
 // import ProductEditScreen from "./srceens/ProductEditScreen";
 // import OrderListScreen from "./srceens/OrderListScreen";
@@ -30,8 +32,9 @@ const routes = {
   "/shipping": ShippingScreen,
   "/payment": PaymentScreen,
   "/placeorder": PlaceOrderScreen,
-  "/dashboard": DashboardScreen,
+  // "/dashboard": DashboardScreen,
   "/test": headernew,
+  "/aboutus": AboutUs,
   // "/productlist": ProductListScreen,
   // "/orderlist": OrderListScreen,
 };
@@ -44,12 +47,12 @@ const router = async () => {
     (request.id ? `/:id` : "") +
     (request.verb ? `/${request.verb}` : "");
   const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
-  const header= document.getElementById('header-container');
+  const header = document.getElementById("header-container");
   header.innerHTML = Header.render();
   Header.after_render();
-  const main = document.getElementById('main-container');
+  const main = document.getElementById("main-container");
   main.innerHTML = await screen.render();
-  if(screen.after_render) screen.after_render();
+  if (screen.after_render) screen.after_render();
   hideLoading();
 }
 

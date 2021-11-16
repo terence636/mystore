@@ -5,7 +5,7 @@ const Header = {
     const { name, isAdmin } = getUserInfo();
     return `
       <div class="brand">
-        <a href="/#/">MyGenSGStore</a>
+        <a href="/#/">MySGStore</a>
       </div>
       <div> 
         ${
