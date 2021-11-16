@@ -49,8 +49,8 @@ const PlaceOrderScreen = {
       .addEventListener("click", async () => {
         const order = convertCartToOrder();
         const { _id } = getUserInfo();
-        // order.user = _id;
-        order.user = 1;
+        order.user = _id;
+        // order.user = 1;
         showLoading();
         console.log(order);
         const data = await createOrderSpring(order);
@@ -86,13 +86,13 @@ const PlaceOrderScreen = {
       <div class="order">
         <div class="order-info">
           <div>
-            <h2>Shipping</h2>
+            <h2 class="font-bold">Shipping</h2>
             <div>
             ${shipping}
             </div>
           </div>
           <div>
-            <h2>Payment</h2>
+            <h2 class="font-bold">Payment</h2>
             <div>
               Payment Method : ${paymentMethod}
             </div>
@@ -100,7 +100,7 @@ const PlaceOrderScreen = {
           <div>
             <ul class="cart-list-container">
               <li>
-                <h2>Shopping Cart</h2>
+                <h2 class="font-bold">Shopping Cart</h2>
                 <div>Price</div>
               </li>
               ${orderItems
@@ -116,7 +116,7 @@ const PlaceOrderScreen = {
                     </div>
                     <div> Qty: ${item.qty} </div>
                   </div>
-                  <div class="cart-price"> $${item.price}</div>
+                  <div class="cart-price"> $${item.price.toFixed(2)}</div>
                 </li>
                 `
                 )
@@ -126,7 +126,7 @@ const PlaceOrderScreen = {
         </div>
         <div class="order-action">
           <ul>
-            <li><h2>Order Summary</h2></li>
+            <li><h2 class="font-bold">Order Summary</h2></li>
             <li><div>Items</div><div>$${itemsPrice}</div></li>
             <li><div>Shipping</div><div>$${shippingPrice}</div></li>
             <li><div>Tax</div><div>$${taxPrice}</div></li>

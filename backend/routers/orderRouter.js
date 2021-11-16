@@ -9,7 +9,7 @@ const orderRouter = express.Router();
 
 orderRouter.get(
   '/summary',
-  isAuth,
+  // isAuth,
   isAdmin,
   async (req, res) => {
     const orders = await Order.aggregate([

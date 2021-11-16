@@ -1,4 +1,5 @@
-import { update, getMyOrders } from '../api.js';
+// import { update } from '../api.js';
+import { updateSpring, getMyOrdersSpring } from "../api_spring.js";
 import { clearUser, getUserInfo, setUserInfo } from '../localStorage.js';
 import { showLoading, hideLoading, showMessage, redirectUser } from '../utils.js';
 
@@ -16,10 +17,12 @@ const ProfileScreen = {
       .addEventListener('submit', async (e) => {
         e.preventDefault();
         showLoading();
-        const data = await update({
+        const { isAdmin }  = getUserInfo(); 
+        const data = await updateSpring({
           name: document.getElementById('name').value,
           email: document.getElementById('email').value,
           password: document.getElementById('password').value,
+          isAdmin
         });
         hideLoading();
         if (data.error) {
@@ -36,7 +39,7 @@ const ProfileScreen = {
     if (!name) {
       document.location.hash = "/";
     }
-    const orders = await getMyOrders();
+    const orders = await getMyOrdersSpring();
     return `
     <div class="content profile">
       <div class="profile-info">

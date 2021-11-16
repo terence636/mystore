@@ -1,6 +1,6 @@
 // import { register } from '../api.js';
 import { registerSpring } from "../api_spring.js";
-import { register } from "../api.js"
+// import { register } from "../api.js"
 import { getUserInfo, setUserInfo } from '../localStorage.js';
 import { showLoading, hideLoading, showMessage, redirectUser } from '../utils.js';
 
@@ -32,11 +32,14 @@ const RegisterScreen = {
           name: document.getElementById('name').value,
           email: document.getElementById('email').value,
           password: document.getElementById('password').value,
+          isAdmin: false,
         });
         hideLoading();
+        console.log(data)
         if (data.error) {
           showMessage(data.error);
         } else {
+          if (data.message) showMessage(data.message);
           setUserInfo(data);
           redirectUser();
         }

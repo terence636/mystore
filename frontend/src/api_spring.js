@@ -55,7 +55,7 @@ export const signinSpring = async (params) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -64,7 +64,7 @@ export const signinSpring = async (params) => {
   }
 };
 
-export const registerSpring = async ({ name, email, password }) => {
+export const registerSpring = async ({ name, email, password, isAdmin }) => {
   try {
     const response = await fetch(`${apiUrlSpring}/users/register`, {
       method: "POST",
@@ -75,11 +75,13 @@ export const registerSpring = async ({ name, email, password }) => {
         name,
         email,
         password,
+        isAdmin
       }),
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      // throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -88,7 +90,7 @@ export const registerSpring = async ({ name, email, password }) => {
   }
 };
 
-export const updateSpring = async ({ name, email, password }) => {
+export const updateSpring = async ({ name, email, password, isAdmin }) => {
   try {
     const { _id, token } = getUserInfo();
     const response = await fetch(`${apiUrlSpring}/api/users/${_id}/`, {
@@ -101,11 +103,12 @@ export const updateSpring = async ({ name, email, password }) => {
         name,
         email,
         password,
+        isAdmin,
       }),
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {

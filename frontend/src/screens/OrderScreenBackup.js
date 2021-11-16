@@ -101,34 +101,46 @@ const OrderScreen = {
       taxPrice,
       totalPrice,
       isDelivered,
-      // deliveredAt,
+      deliveredAt,
       isPaid,
-      // paidAt,
+      paidAt,
     } = await getOrderSpring(request.id);
     if (!isPaid) {
       addPaypalSdk(totalPrice);
     }
+    // ${shipping.address}, ${shipping.city}, ${shipping.postalCode},
+    // ${shipping.country}
     return `
     <div>
     <h1>Order ${_id}</h1>
       <div class="order">
         <div class="order-info">
           <div>
-            <h2 class="font-bold">Shipping</h2>
+            <h2>Shipping</h2>
             <div>
             ${shipping}
             </div>
+            ${
+              isDelivered
+                ? `<div class="success">Delivered at ${deliveredAt}</div>`
+                : `<div class="error">Not Delivered</div>`
+            }
           </div>
           <div>
-            <h2 class="font-bold">Payment</h2>
+            <h2>Payment</h2>
             <div>
               Payment Method : ${paymentMethod}
             </div>
+            ${
+              isPaid
+                ? `<div class="success">Paid at ${paidAt}</div>`
+                : `<div class="error">Not Paid</div>`
+            }
           </div>
           <div>
             <ul class="cart-list-container">
               <li>
-                <h2 class="font-bold">Shopping Cart</h2>
+                <h2>Shopping Cart</h2>
                 <div>Price</div>
               </li>
               ${orderItems
@@ -154,7 +166,7 @@ const OrderScreen = {
         </div>
         <div class="order-action">
           <ul>
-            <li><h2 class="font-bold">Order Summary</h2></li>
+            <li><h2>Order Summary</h2></li>
             <li><div>Items</div><div>$${itemsPrice}</div></li>
             <li><div>Shipping</div><div>$${shippingPrice}</div></li>
             <li><div>Tax</div><div>$${taxPrice}</div></li>
