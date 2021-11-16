@@ -44,7 +44,7 @@ const CartScreen = {
       qtySelect.addEventListener('change', (e)=>{
      
         const item = getCartItems().find(x => x.productId.toString() === qtySelect.id)
-        console.log(item);
+        // console.log(item);
         addToCart({...item, qty: Number(e.target.value)},true)
       })
     })
@@ -118,7 +118,7 @@ const CartScreen = {
                 </div>
               </div>
               <div class="cart-price">
-                $${item.price}
+                $${item.price.toFixed(2)}
               </div>
             </li>
             `
@@ -131,7 +131,7 @@ const CartScreen = {
           <h3>
             Subtotal (${cartItems.reduce((a, c) => a + c.qty, 0)} items)
             :
-            $${cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
+            $${cartItems.reduce((a, c) => a + c.price * c.qty, 0).toFixed(2)}
           </h3>
           <button class="primary fw" id="checkout-button" >
             Proceed to Checkout

@@ -1,9 +1,6 @@
 package com.gensg.mystore.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Products {
@@ -13,6 +10,7 @@ public class Products {
     private Long id;
 
     private String name;
+    @Column(length=10485760)
     private String description;
     private String category;
     private String brand;

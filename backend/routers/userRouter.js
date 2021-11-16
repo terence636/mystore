@@ -86,7 +86,7 @@ userRouter.post(
         name: createdUser.name,
         email: createdUser.email,
         isAdmin: createdUser.isAdmin,
-        // token: generateToken(createdUser),
+        token: generateToken(createdUser),
       });
     }
   });

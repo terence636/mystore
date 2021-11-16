@@ -1,4 +1,5 @@
-import { signin } from "../api.js";
+// import { signin } from "../api.js";
+import { signinSpring } from "../api_spring.js";
 import { getUserInfo, setUserInfo } from "../localStorage.js";
 import { showLoading, hideLoading, showMessage, redirectUser } from "../utils.js";
 
@@ -10,14 +11,13 @@ const SigninScreen = {
         e.preventDefault();
         showLoading();
         // const data = await signinSpring({
-        const data = await signin({
+        const data = await signinSpring({
           email: document.getElementById("email").value,
           password: document.getElementById("password").value,
         });
         hideLoading();
         if (data.error) {
           showMessage(data.error);
-          // alert(data.error);
         } else {
           setUserInfo(data);
           redirectUser();

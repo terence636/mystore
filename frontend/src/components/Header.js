@@ -8,11 +8,13 @@ const Header = {
         <a href="/#/">MyGenSGStore</a>
       </div>
       <div> 
-        ${name 
-          ? `<a href="/#/profile">${name.toUpperCase()}</a>` 
-          : `<a href="/#/signin">Sign-in</a>`}
+        ${
+          name
+            ? `<a href="/#/profile">${name.toUpperCase()}</a>`
+            : `<a href="/#/signin">Sign-in</a>`
+        }
         <a href="/#/cart">Cart</a>
-        ${isAdmin ? `<a href="/#/dashboard">Dashboard</a>` : ''}
+        ${isAdmin ? `<a href="/#/dashboard">Dashboard</a>` : ""}
       </div>
     `;
   },

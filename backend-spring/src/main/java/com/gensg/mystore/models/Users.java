@@ -13,7 +13,6 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private String name;
     private String email;
     private String password;
@@ -64,5 +63,8 @@ public class Users {
         isAdmin = admin;
     }
 
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
 }
 

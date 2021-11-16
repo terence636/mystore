@@ -20,9 +20,9 @@ const ProductScreen = {
     }
     return `
     <div class="content">
-      <div class="back-to-result">
+      <!--div class="back-to-result">
         <a href="/#/">Back to result</a>
-      </div>
+      </div-->
       <div class="details">
         <div class="details-image">
           <img src="${product.image}" alt="product image" />
@@ -30,7 +30,7 @@ const ProductScreen = {
         <div class="details-info">
           <ul>
             <li>
-              <h1>${product.name}</h1>
+              <h1 class="font-bold">${product.name}</h1>
             </li>
             <li>
             ${Rating.render({
@@ -39,10 +39,9 @@ const ProductScreen = {
             })}
             </li>
             <li>
-              Price: <strong>$${product.price}</strong>
+              Price: <strong>$${product.price.toFixed(2)}</strong>
             </li>
-            <li>
-              Description: <br><br>
+            <li><br>
               <div>
                 ${product.description}
               </div>
@@ -52,7 +51,7 @@ const ProductScreen = {
         <div class="details-action">
             <ul>
               <li>
-                Price: $${product.price}
+                Price: $${product.price.toFixed(2)}
               </li>
               <li>
                 Status : 
