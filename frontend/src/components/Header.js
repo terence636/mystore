@@ -19,7 +19,7 @@ const Headernew = {
         : `<a class="hover:text-orange-200" href="/#/signin">Admin</a>`  
         }  
         </li>
-        <li><a class="hover:text-orange-200" href="/#/aboutus">About Us</a></li>
+        <li><div class="hover:text-orange-200">Category</div></li>
       </ul>
       <!-- Header Icons -->
       <div class="hidden sm:flex items-center space-x-5">
