@@ -1,10 +1,10 @@
 const data = {
-  products: [
+  productsTest: [
     {
       id: "111111111111111111111111",
       name: "Full Zip Running Shirts",
       category: "Shirts",
-      image: "./images/product-1.jpg",
+      image: "./images/product-1.webp",
       price: 60,
       brand: "Hiskywin",
       rating: 1.5,
@@ -17,7 +17,7 @@ const data = {
       id: "222222222222222222222222",
       name: "Full Zip Running Shirts",
       category: "Shirts",
-      image: "./images/product-2.jpg",
+      image: "./images/product-2.webp",
       price: 60,
       brand: "Hiskywin",
       rating: 2.5,

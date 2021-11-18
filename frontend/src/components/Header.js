@@ -9,17 +9,17 @@ const Headernew = {
   <nav class="flex justify-between bg-gray-900 text-white">
     <div class="px-5 xl:px-12 py-6 flex w-full items-center">
       <a class="text-3xl font-bold font-heading" href="/#/">
-        <img class="h-10" src="makito.png" alt="logo">
+        <img class="h-10" src="/images/makito.png" alt="logo">
       </a>
       <!-- Nav Links -->
       <ul class="hidden sm:flex px-4 mx-auto font-semibold font-heading space-x-12">
-        <li><a class="hover:text-orange-200" href="/#/">Home</a></li>
+        <li><a class="hover:text-orange-200" href="/#/">Store</a></li>
         <li>
         ${ isAdmin ? `<a class="hover:text-orange-200" href="/#/dashboard">Dashboard</a>`
-        : `<a class="hover:text-orange-200" href="/#/signin">Admin</a>`  
+        : ``  
         }  
         </li>
-        <li><a class="hover:text-orange-200" href="/#/aboutus">About Us</a></li>
+        <li><a class="category hover:text-orange-200" href="#aboutus">About Us</a></li>
       </ul>
       <!-- Header Icons -->
       <div class="hidden sm:flex items-center space-x-5">

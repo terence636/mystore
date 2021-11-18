@@ -13,7 +13,6 @@ import PaymentScreen from "./screens/PaymentScreen.js";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen.js";
 import OrderScreen from "./screens/OrderScreen.js";
 // import DashboardScreen from "./screens/DashboardScreen.js";
-import headernew from "./screens/TestHomeScreen.js";
 import AboutUs from "./screens/AboutUs.js";
 // import ProductListScreen from "./srceens/ProductListScreen";
 // import ProductEditScreen from "./srceens/ProductEditScreen";
@@ -33,7 +32,6 @@ const routes = {
   "/payment": PaymentScreen,
   "/placeorder": PlaceOrderScreen,
   // "/dashboard": DashboardScreen,
-  "/test": headernew,
   "/aboutus": AboutUs,
   // "/productlist": ProductListScreen,
   // "/orderlist": OrderListScreen,
