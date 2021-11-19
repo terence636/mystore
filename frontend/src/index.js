@@ -18,6 +18,7 @@ import AboutUs from "./screens/AboutUs.js";
 // import ProductEditScreen from "./srceens/ProductEditScreen";
 // import OrderListScreen from "./srceens/OrderListScreen";
 // import Aside from "./components/Aside";
+import CatergoryScreen from "./screens/HomeCatergory.js";
 
 const routes = {
   "/": HomeScreen,
@@ -35,6 +36,7 @@ const routes = {
   "/aboutus": AboutUs,
   // "/productlist": ProductListScreen,
   // "/orderlist": OrderListScreen,
+  "/catergory": CatergoryScreen,
 };
 
 const router = async () => {
