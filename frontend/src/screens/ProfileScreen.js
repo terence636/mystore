@@ -71,16 +71,16 @@ const ProfileScreen = {
       </form>
     </div>
       </div>
-      <div class="profile-orders">
-      <h2>Order History</h2>
+      <div class="profile-orders pt-20 md:pt-0">
+      <!--h2>Order History</h2-->
         <table>
           <thead>
             <tr>
               <th>ORDER ID</th>
               <th>DATE</th>
               <th>TOTAL</th>
-              <th>PAID</th>
-              <th>DELIVERED</th>
+              <!--th>PAID</th-->
+              <!--th>DELIVERED</th-->
               <th>ACTIONS</th>
             </tr>
           </thead>
@@ -95,8 +95,8 @@ const ProfileScreen = {
             <td>${order._id}</td>
             <td>${order.createdAt}</td>
             <td>${order.totalPrice}</td>
-            <td>${order.paidAt || "No"}</td>
-            <td>${order.deliveryAt || "No"}</td>
+            <!--td>${order.paidAt || "No"}</td-->
+            <!--td>${order.deliveryAt || "No"}</td-->
             <td><a href="/#/order/${order._id}">DETAILS</a> </td>
           </tr>
           `

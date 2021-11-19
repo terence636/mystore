@@ -3,7 +3,7 @@ import { getUserInfo } from "./localStorage.js"
 
 export const getProductSpring = async (id) => {
   try {
-    const response = await fetch(`${UrlSpring}/api/products/${id}`, {
+    const response = await fetch(`${apiUrlSpring}/api/products/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

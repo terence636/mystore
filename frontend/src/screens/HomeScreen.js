@@ -14,6 +14,7 @@ const headernew = {
             return `<div class="error">${products.error}</div>`;
         }
 
+
     // const { productsTest } = data;
     console.log(products);
     return `
@@ -84,11 +85,11 @@ const headernew = {
 
 
 
-    <nav id="Category" class="w-full z-30 top-0 px-6 py-1">
+    <nav id="Category" class="w-full z-30 top-0 px-6 pt-10">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
         <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-    Categories
+    T-Shirts
         </a>
 
         <div class="flex items-center" id="Category-nav-content">
