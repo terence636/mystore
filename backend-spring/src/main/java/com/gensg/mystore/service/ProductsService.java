@@ -20,6 +20,11 @@ public class ProductsService implements IProductsService {
     }
 
     @Override
+    public ArrayList<Products> getProductsbyCategory(String category) {
+        return (ArrayList<Products>) productsRepository.getProductsbyCategory(category);
+    }
+
+    @Override
     public Products getOne( Long id ) {
         Optional<Products> product = productsRepository.findById(id);
         return product.orElse(null);

@@ -46,7 +46,7 @@ export const getProductsSpring = async ({ searchKeyword = "" }) => {
 // { email, password })
 export const signinSpring = async (params) => {
   try {
-    const response = await fetch(`${apiUrlSpring}/users/auth`, {
+    const response = await fetch(`${UrlSpring}/users/auth`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

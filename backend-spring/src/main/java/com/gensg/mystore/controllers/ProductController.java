@@ -17,6 +17,13 @@ public class ProductController {
     @Autowired
     private ProductsService productsService;
 
+    @GetMapping("/api/products/category")
+    @ResponseBody
+    public ResponseEntity<?> getProductsbyCategory(@RequestParam String search) {
+        ArrayList<Products> products = productsService.getProductsbyCategory(search);
+        return new ResponseEntity(products, HttpStatus.OK);
+    }
+
     @GetMapping("/api/products")
     public ResponseEntity<?> getAll() throws ServletException {
         ArrayList<Products> products = productsService.getAll();
