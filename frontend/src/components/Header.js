@@ -7,7 +7,7 @@ const Headernew = {
     return `
    
   <section class="relative">
-  <nav class="flex justify-between  bg-blue-900 text-white fixed top-0 z-10 w-full">
+  <nav class="flex justify-between  bg-green-1000 text-white fixed top-0 z-10 w-full">
     <div class="px-5 xl:px-12 py-6 flex w-full justify-between items-center">
       <a class="text-3xl font-bold font-heading" href="/#/">
         <img class="h-10" src="/images/makito.png" alt="logo">

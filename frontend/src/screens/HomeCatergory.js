@@ -14,6 +14,7 @@ const headernew = {
             return `<div class="error">${products.error}</div>`;
         }
 
+
     // const { productsTest } = data;
     console.log(products);
     return `
@@ -31,7 +32,7 @@ const headernew = {
         <!--Slide 1-->
         <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
         <div class="carousel-item absolute opacity-0" style="height:50vh;">
-            <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('https://images.unsplash.com/photo-1422190441165-ec2956dc9ecc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80');">
+            <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('./images/Banners/CarouselBanner1.jpeg');">
 
                 <div class="container mx-auto">
                     <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
@@ -48,7 +49,7 @@ const headernew = {
         <!--Slide 2-->
         <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
         <div class="carousel-item absolute opacity-0 bg-cover bg-right" style="height:50vh;">
-            <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjM0MTM2fQ&auto=format&fit=crop&w=1600&q=80');">
+            <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('./images/Banners/CarouselBanner2.png');">
 
                 <div class="container mx-auto">
                     <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
@@ -65,7 +66,7 @@ const headernew = {
         <!--Slide 3-->
         <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
         <div class="carousel-item absolute opacity-0" style="height:50vh;">
-            <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-bottom" style="background-image: url('https://images.unsplash.com/photo-1519327232521-1ea2c736d34d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80');">
+            <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('./images/Banners/CarouselBanner3.jpeg');">
 
                 <div class="container mx-auto">
                     <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
@@ -84,11 +85,11 @@ const headernew = {
 
 
 
-    <nav id="Category" class="w-full z-30 top-0 px-6 py-1">
+    <nav id="Category" class="w-full z-30 top-0 px-6 pt-10">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
         <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-    Categories
+    T-Shirts
         </a>
 
         <div class="flex items-center" id="Category-nav-content">
@@ -109,38 +110,36 @@ const headernew = {
     </div>
     </nav>
 
-    
-        ${products
-          .map(
-            (product) =>
-              `
-        <li>
-        <div class="product">
-    
-            <a href="/#/product/${product.id}">
-                <img class="hover:grow hover:shadow-lg" src="${
-                  product.image
-                }" alt="${product.name}" />
-            </a>
-            
-                <p class="pt-3 flex items-center justify-between">
-                    <p class="product-name">
-                    <a href="/#/product/${product.id}">${product.name}</a></p>
-                </p>
-                <P class="product-rating">${Rating.render({
-                  value: product.rating,
-                  text: `${product.numReviews} reviews`,
-                })}</p>
-                <p class="product-brand">${product.brand}</p>
-                <p class="pt-1 text-gray-900">$${product.price.toFixed(2)}</p>
-     
-        </div>
-        </li>
-        `
-          )
-          .join("\n")}
+    <div class="prod_category">
+        <!-- Jackets category-->
+        <div class="bkgd_jackets"></div>
+        <div class="img_jackets"></div>
+            <span class="title_jacket">Jackets</span>
+            <span class="copy_jacket">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra et risus laoreet eu at commodo phasellus eget id. 
+            Amet, eget faucibus quam tempus. Mi felis facilisis ultrices enim in in semper. Quis ullamcorper adipiscing in mauris at id quam. 
+            Quisque orci, nisl eget eu, faucibus nascetur nulla. Non sed sed eget ullamcorper.
+            </span>
 
+        <!-- Tshirts category-->
+        <div class="bkgd_tshirts"></div>
+        <div class="img_tshirts"></div>
+        <span class="title_tshirts">T-shirts</span>
+            <span class="copy_tshirts">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra et risus laoreet eu at commodo phasellus eget id. 
+            Amet, eget faucibus quam tempus. Mi felis facilisis ultrices enim in in semper. Quis ullamcorper adipiscing in mauris at id quam. 
+            Quisque orci, nisl eget eu, faucibus nascetur nulla. Non sed sed eget ullamcorper.
+            </span>
 
+        <!-- Jeans category -->
+        <div class="bkgd_jeans"></div> 
+        <div class="img_jeans"></div>
+            <span class="title_jeans">Jeans</span>
+            <span class="copy_jeans">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra et risus laoreet eu at commodo phasellus eget id. 
+            Amet, eget faucibus quam tempus. Mi felis facilisis ultrices enim in in semper. Quis ullamcorper adipiscing in mauris at id quam. 
+            Quisque orci, nisl eget eu, faucibus nascetur nulla. Non sed sed eget ullamcorper.
+            </span>
+    </div>
+
+    
         <div class="bg-white pt-8" id="aboutus">
             <div class="container pt-8 px-6 mx-auto border-t border-gray-400">
                 <h3 class="font-bold text-gray-900">About us</h3>
@@ -210,6 +209,8 @@ const headernew = {
                 </div>
             </div>
         </div>
+
+
 
 
      </div>

@@ -127,6 +127,185 @@ footer {
   color: #ffffff;
 }
 
+/* Category */
+.prod_category_style {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 30%;
+}
+
+/* Catergory - added by Ken*/
+.prod_category {
+  width: 100%;
+  height: 1800px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+
+.bkgd_jackets {
+  width: 1440px;
+  height: 500px;
+  background: rgba(240,237,237,1);
+  opacity: 1;
+  position: absolute;
+  top: 50px;
+  left: 40px;
+}
+.bkgd_tshirts {
+  width: 1440px;
+  height: 500px;
+  background: rgba(240,237,237,1);
+  opacity: 1;
+  position: absolute;
+  top: 600px;
+  left: 40px;
+}
+.bkgd_jeans {
+  width: 1440px;
+  height: 500px;
+  background: rgba(240,237,237,1);
+  opacity: 1;
+  position: absolute;
+  top: 1150px;
+  left: 40px;
+}
+
+.img_jackets {
+  width: 400px;
+  height: 400px;
+  background: url("./images/category/97019523420495c2ed42848eea65b141.jpeg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 105px;
+  left: 111px;
+  border-top-left-radius: 90px;
+  border-top-right-radius: 90px;
+  border-bottom-left-radius: 90px;
+  border-bottom-right-radius: 90px;
+  overflow: hidden;
+}
+.img_tshirts {
+  width: 400px;
+  height: 400px;
+  background: url("./images/category/13c40934189e13c3bdb02dd164758cb9.jpeg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 655px;
+  left: 111px;
+  border-top-left-radius: 90px;
+  border-top-right-radius: 90px;
+  border-bottom-left-radius: 90px;
+  border-bottom-right-radius: 90px;
+  overflow: hidden;
+}
+.img_jeans {
+  width: 400px;
+  height: 400px;
+  background: url("./images/category/508bd7fadd4848b52c717d081a18ca76.jpeg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 1205px;
+  left: 111px;
+  border-top-left-radius: 90px;
+  border-top-right-radius: 90px;
+  border-bottom-left-radius: 90px;
+  border-bottom-right-radius: 90px;
+  overflow: hidden;
+}
+
+.title_jacket {
+  width: 224px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 80px;
+  left: 1220px;
+  font-family: Roboto;
+  font-weight: Regular;
+  font-size: 64px;
+  opacity: 1;
+  text-align: left;
+}
+.title_tshirts {
+  width: 224px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 630px;
+  left: 1205px;
+  font-family: Roboto;
+  font-weight: Regular;
+  font-size: 64px;
+  opacity: 1;
+  text-align: left;
+}
+.title_jeans {
+  width: 224px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 1180px;
+  left: 1220px;
+  font-family: Roboto;
+  font-weight: Regular;
+  font-size: 64px;
+  opacity: 1;
+  text-align: left;
+}
+
+.copy_jacket {
+  width: 571px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 200px;
+  left: 620px;
+  font-family: Roboto;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: justified;
+}
+.copy_tshirts {
+  width: 571px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 750px;
+  left: 620px;
+  font-family: Roboto;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: justified;
+}
+.copy_jeans {
+  width: 571px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 1300px;
+  left: 620px;
+  font-family: Roboto;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: justified;
+}
+
+
+
+
+
+
 /* Products */
 .products {
   display: flex;
