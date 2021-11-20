@@ -160,6 +160,10 @@ class OrderResponseBody {
         this.order = singleOrder;
     }
 
+    public OrderResponseBody(String message) {
+        this.message = message;
+    }
+
     public String getMessage() {
         return message;
     }
@@ -264,8 +268,9 @@ public class OrderController {
 
     @DeleteMapping("/api/orders/{id}")
     @ResponseBody
-    public void deleteOne(@PathVariable Long id) {
+    public ResponseEntity<?> deleteOne(@PathVariable Long id) {
         ordersService.deleteOne(id);
+        return new ResponseEntity(new OrderResponseBody("Order " + id + " Deleted"),HttpStatus.OK);
     }
 
 }

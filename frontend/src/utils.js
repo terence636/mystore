@@ -2,7 +2,6 @@ import { getCartItems } from "./localStorage.js";
 
 export const parseRequestUrl = () => {
   const url = document.location.hash.toLowerCase();
-  // console.log("URL",url)
   const request = url.split("/");
   return {
     resource: request[1],
@@ -41,6 +40,8 @@ export const showMessage = (message, callback) => {
       }
     });
 };
+
+
 export const redirectUser = () => {
   console.log("CartLength",getCartItems().length);
   if (getCartItems().length !== 0) {

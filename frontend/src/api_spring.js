@@ -23,8 +23,11 @@ export const getProductSpring = async (id) => {
 
 export const getProductsSpring = async ({ searchKeyword = "" }) => {
   try {
-    let queryString = "?";
-    if (searchKeyword) queryString += `searchKeyword=${searchKeyword}&`;
+    let queryString = "?search";
+    if (searchKeyword) 
+      queryString += `=${searchKeyword}`;
+    else
+      queryString += `=all`
 
     const response = await fetch(`${apiUrlSpring}/api/products${queryString}`, {
       method: "GET",
@@ -46,7 +49,7 @@ export const getProductsSpring = async ({ searchKeyword = "" }) => {
 // { email, password })
 export const signinSpring = async (params) => {
   try {
-    const response = await fetch(`${UrlSpring}/users/auth`, {
+    const response = await fetch(`${apiUrlSpring}/users/auth`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -213,7 +216,7 @@ export const deleteOrderSpring = async (orderId) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {

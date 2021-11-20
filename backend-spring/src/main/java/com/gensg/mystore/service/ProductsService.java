@@ -20,8 +20,8 @@ public class ProductsService implements IProductsService {
     }
 
     @Override
-    public ArrayList<Products> getProductsbyCategory(String category) {
-        return (ArrayList<Products>) productsRepository.getProductsbyCategory(category);
+    public ArrayList<Products> getProductsByCategory(String category) {
+        return (ArrayList<Products>) productsRepository.getProductsByCategory(category);
     }
 
     @Override

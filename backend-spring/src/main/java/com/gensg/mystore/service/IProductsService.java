@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface IProductsService {
     ArrayList<Products> getAll();
-    ArrayList<Products> getProductsbyCategory(String category);
+    ArrayList<Products> getProductsByCategory(String category);
     Products getOne( Long id );
     void delete( Long id );
     void deleteAll();

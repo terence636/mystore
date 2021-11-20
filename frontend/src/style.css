@@ -120,7 +120,7 @@ header a:hover {
 } */
 
 footer {
-  background-color: #203040;
+  /* background-color: #203040; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,19 +128,20 @@ footer {
 }
 
 /* Products */
-.products {
+/* .products {
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
   margin: 0;
   justify-content: space-between;
-}
+} */
 .products li {
   flex: 0 1 30rem;
   margin: 1rem;
   margin-bottom: 0;
-  height: 42rem;
+  height: 40rem;
+  width: 24rem;
   border-top: 0.2rem #e0e0e0 solid;
 }
 .product {
@@ -552,3 +553,8 @@ td {
             color: #000;
             /*Set to match the Tailwind colour you want the active one to be */
         }
+
+        /* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
