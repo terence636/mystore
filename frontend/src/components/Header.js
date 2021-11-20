@@ -1,25 +1,24 @@
 import { getUserInfo } from '../localStorage.js'
 
-const Headernew = {
+const Header = {
   after_render: () => {},
   render: () => {
     const { name, isAdmin } = getUserInfo();
     return `
-   
   <section class="relative">
-  <nav class="flex justify-between  bg-green-1000 text-white fixed top-0 z-10 w-full">
+  <nav class="flex justify-between  bg-green-1000 text-black fixed top-0 z-10 w-full">
     <div class="px-5 xl:px-12 py-6 flex w-full justify-between items-center">
       <a class="text-3xl font-bold font-heading" href="/#/">
         <img class="h-10" src="/images/makito.png" alt="logo">
       </a>
       <!-- Nav Links -->
-      <ul class="hidden sm:flex px-4 mx-auto font-semibold font-heading space-x-12">
-        <li><a class="hover:text-orange-200" href="/#/">Store</a></li>
-        <li>
+      <ul class="hidden sm:flex mx-auto font-semibold font-heading space-x-12">
+        <li><a class="hover:text-orange-200" href="/#/">Home</a></li>
+        <li><a class="hover:text-orange-200" href="/#/store">Store</a></li>
         ${
           isAdmin
-            ? `<a class="hover:text-orange-200" href="/#/dashboard">Dashboard</a>`
-            : ``
+            ? `<li><a class="hover:text-orange-200" href="/#/dashboard">Dashboard</a></li>`
+            : ""
         }  
         </li>
         <li><a class="category hover:text-orange-200" href="#aboutus">About Us</a></li>
@@ -64,4 +63,4 @@ const Headernew = {
   },
 }
 
-export default Headernew;
+export default Header;

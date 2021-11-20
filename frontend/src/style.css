@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size: 62.5% /* 16px * 0.625 = 10px = 1rem */
+  font-size: 62.5%; /* 16px * 0.625 = 10px = 1rem */
 }
 
 body {
@@ -81,10 +81,10 @@ button.primary {
 
 .grid-container {
   display: grid;
-  grid-template-areas: 
-    'header'
-    'main'
-    'footer';
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
   grid-template-columns: 1fr;
   grid-template-rows: 5rem 1fr 5rem;
   height: 100%;
@@ -139,7 +139,7 @@ footer {
 .prod_category {
   width: 100%;
   height: 1800px;
-  background: rgba(255,255,255,1);
+  background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: relative;
   top: 0px;
@@ -150,7 +150,7 @@ footer {
 .bkgd_jackets {
   width: 1440px;
   height: 500px;
-  background: rgba(240,237,237,1);
+  background: rgba(240, 237, 237, 1);
   opacity: 1;
   position: absolute;
   top: 50px;
@@ -159,7 +159,7 @@ footer {
 .bkgd_tshirts {
   width: 1440px;
   height: 500px;
-  background: rgba(240,237,237,1);
+  background: rgba(240, 237, 237, 1);
   opacity: 1;
   position: absolute;
   top: 600px;
@@ -168,7 +168,7 @@ footer {
 .bkgd_jeans {
   width: 1440px;
   height: 500px;
-  background: rgba(240,237,237,1);
+  background: rgba(240, 237, 237, 1);
   opacity: 1;
   position: absolute;
   top: 1150px;
@@ -229,7 +229,7 @@ footer {
 
 .title_jacket {
   width: 224px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 80px;
   left: 1220px;
@@ -241,7 +241,7 @@ footer {
 }
 .title_tshirts {
   width: 224px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 630px;
   left: 1205px;
@@ -253,7 +253,7 @@ footer {
 }
 .title_jeans {
   width: 224px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 1180px;
   left: 1220px;
@@ -266,7 +266,7 @@ footer {
 
 .copy_jacket {
   width: 571px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 200px;
   left: 620px;
@@ -278,7 +278,7 @@ footer {
 }
 .copy_tshirts {
   width: 571px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 750px;
   left: 620px;
@@ -290,7 +290,7 @@ footer {
 }
 .copy_jeans {
   width: 571px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 1300px;
   left: 620px;
@@ -300,11 +300,6 @@ footer {
   opacity: 1;
   text-align: justified;
 }
-
-
-
-
-
 
 /* Products */
 /* .products {
@@ -357,7 +352,6 @@ footer {
 .rating {
   color: #ffc000;
   font-size: 1.8rem;
-
 }
 .rating span:last-child {
   color: #444444;
@@ -422,7 +416,7 @@ footer {
   border-radius: 0.5rem;
   padding: 1rem;
 }
- .cart-list-container {
+.cart-list-container {
   padding: 1rem;
   list-style-type: none;
 }
@@ -463,12 +457,12 @@ footer {
 }
 
 .cart-list select {
-  font-size:1.3rem;
+  font-size: 1.3rem;
   padding: 0.5rem;
-} 
+}
 
 .cart-action button {
-  font-size:1.5rem;
+  font-size: 1.5rem;
   padding: 0.5rem;
   margin-top: 2rem;
 }
@@ -568,7 +562,7 @@ footer {
 }
 
 #placeorder-button:active {
-  transform: scale(0.99) translate(0.1rem,0.1rem);
+  transform: scale(0.99) translate(0.1rem, 0.1rem);
 }
 
 /* Profile */
@@ -681,59 +675,117 @@ td {
   flex: 1;
 }
 
-  .work-sans {
-            font-family: 'Work Sans', sans-serif;
-        }
-                
-        #menu-toggle:checked + #menu {
-            display: block;
-        }
-        
-        .hover\:grow {
-            transition: all 0.3s;
-            transform: scale(1);
-        }
-        
-        .hover\:grow:hover {
-            transform: scale(1.02);
-        }
-        
-        .carousel-open:checked + .carousel-item {
-            position: static;
-            opacity: 100;
-        }
-        
-        .carousel-item {
-            -webkit-transition: opacity 0.6s ease-out;
-            transition: opacity 0.6s ease-out;
-        }
-        
-        #carousel-1:checked ~ .control-1,
-        #carousel-2:checked ~ .control-2,
-        #carousel-3:checked ~ .control-3 {
-            display: block;
-        }
-        
-        .carousel-indicators {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            position: absolute;
-            bottom: 2%;
-            left: 0;
-            right: 0;
-            text-align: center;
-            z-index: 10;
-        }
-        
-        #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
-        #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
-        #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
-            color: #000;
-            /*Set to match the Tailwind colour you want the active one to be */
-        }
+/* Home Screen Carousel */
+.work-sans {
+  font-family: "Work Sans", sans-serif;
+}
 
-        /* Show the dropdown menu on hover */
+#menu-toggle:checked + #menu {
+  display: block;
+}
+
+.hover\:grow {
+  transition: all 0.3s;
+  transform: scale(1);
+}
+
+.hover\:grow:hover {
+  transform: scale(1.02);
+}
+
+.carousel-open:checked + .carousel-item {
+  position: static;
+  opacity: 100;
+}
+
+.carousel-item {
+  -webkit-transition: opacity 0.6s ease-out;
+  transition: opacity 0.6s ease-out;
+}
+
+#carousel-1:checked ~ .control-1,
+#carousel-2:checked ~ .control-2,
+#carousel-3:checked ~ .control-3 {
+  display: block;
+}
+
+.carousel-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+#carousel-1:checked
+  ~ .control-1
+  ~ .carousel-indicators
+  li:nth-child(1)
+  .carousel-bullet,
+#carousel-2:checked
+  ~ .control-2
+  ~ .carousel-indicators
+  li:nth-child(2)
+  .carousel-bullet,
+#carousel-3:checked
+  ~ .control-3
+  ~ .carousel-indicators
+  li:nth-child(3)
+  .carousel-bullet {
+  color: #000;
+  /*Set to match the Tailwind colour you want the active one to be */
+}
+
+/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* Error Page */
+.mainbox {
+  background-color: #95c2de;
+  margin: auto;
+  height: 600px;
+  width: 600px;
+  position: relative;
+}
+
+.err {
+  color: #ffffff;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 11rem;
+  position: absolute;
+  left: 20%;
+  top: 8%;
+}
+
+.far {
+  position: absolute;
+  font-size: 8.5rem;
+  left: 42%;
+  top: 15%;
+  color: #ffffff;
+}
+
+.err2 {
+  color: #ffffff;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 11rem;
+  position: absolute;
+  left: 68%;
+  top: 8%;
+}
+
+.msg {
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.6rem;
+  position: absolute;
+  left: 16%;
+  top: 45%;
+  width: 75%;
 }
