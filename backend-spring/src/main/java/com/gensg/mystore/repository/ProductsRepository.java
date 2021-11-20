@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public interface ProductsRepository extends JpaRepository<Products, Long> {
 
         @Query(value = "SELECT * FROM products WHERE category=?1", nativeQuery = true)
-        public ArrayList<Products> getProductsbyCategory(String category);
+        public ArrayList<Products> getProductsByCategory(String category);
 
 
 }

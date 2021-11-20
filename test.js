@@ -16,3 +16,10 @@ let item = {
 
 item = {...item, qty:2};
 console.log(item)
+
+const arr = [1,2,3,4,5]
+
+//Descending order
+arr.sort((a,b) => b-a)
+
+console.log(arr)

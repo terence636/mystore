@@ -1,27 +1,131 @@
+/* eslint-disable func-names */
+/* eslint-disable object-shorthand */
 import Rating from "../components/Rating.js";
 import { getProductsSpring } from "../api_spring.js";
-import { parseRequestUrl } from "../utils.js";
+import { reRender } from "../utils.js";
 
 // import data from '../data.js'
 
-const headernew = {
-    after_render: () => {},
+const HomeScreen = {
+    sortTshirt:"none",
+    sortJean:"none",
+    sortJacket:"none",
 
-    render: async () => {
-        const { value } = parseRequestUrl();
-        const products = await getProductsSpring({ searchKeyword: value });
-        if (products.error) {
-            return `<div class="error">${products.error}</div>`;
-        }
+    after_render: async function() {
+        const sortTshirtAscPrice = document.getElementById("tshirt-asc-price");
+        const sortTshirtDesPrice = document.getElementById("tshirt-des-price");
+        const sortTshirtAscRating = document.getElementById("tshirt-asc-rating");
+        const sortTshirtDesRating = document.getElementById("tshirt-des-rating");
+        sortTshirtAscPrice.addEventListener("click", () => {
+            this.sortTshirt = "ascPrice";
+            reRender(HomeScreen);
+        });
+        sortTshirtDesPrice.addEventListener("click", () => {
+            this.sortTshirt = "desPrice";
+            reRender(HomeScreen);
+        });
+        sortTshirtAscRating.addEventListener("click", () => {
+            this.sortTshirt = "ascRating";
+            reRender(HomeScreen);
+        });
+        sortTshirtDesRating.addEventListener("click", () => {
+            this.sortTshirt = "desRating";
+            reRender(HomeScreen);
+        });
+
+        const sortJeanAscPrice = document.getElementById("jean-asc-price");
+        const sortJeanDesPrice = document.getElementById("jean-des-price");
+        const sortJeanAscRating = document.getElementById("jean-asc-rating");
+        const sortJeanDesRating = document.getElementById("jean-des-rating");
+        sortJeanAscPrice.addEventListener("click", () => {
+            this.sortJean = "ascPrice";
+            reRender(HomeScreen);
+        });
+        sortJeanDesPrice.addEventListener("click", () => {
+            this.sortJean = "desPrice";
+            reRender(HomeScreen);
+        });
+        sortJeanAscRating.addEventListener("click", () => {
+            this.sortJean = "ascRating";
+            reRender(HomeScreen);
+        });
+        sortJeanDesRating.addEventListener("click", () => {
+            this.sortJean = "desRating";
+            reRender(HomeScreen);
+        });
+
+        const sortJacketAscPrice = document.getElementById("jacket-asc-price");
+        const sortJacketDesPrice = document.getElementById("jacket-des-price");
+        const sortJacketAscRating = document.getElementById("jacket-asc-rating");
+        const sortJacketDesRating = document.getElementById("jacket-des-rating");
+        sortJacketAscPrice.addEventListener("click", () => {
+            this.sortJacket = "ascPrice";
+            reRender(HomeScreen);
+        });
+        sortJacketDesPrice.addEventListener("click", () => {
+            this.sortJacket = "desPrice";
+            reRender(HomeScreen);
+        });
+        sortJacketAscRating.addEventListener("click", () => {
+            this.sortJacket = "ascRating";
+            reRender(HomeScreen);
+        });
+        sortJacketDesRating.addEventListener("click", () => {
+            this.sortJacket = "desRating";
+            reRender(HomeScreen);
+        });
 
 
-    // const { productsTest } = data;
-    console.log(products);
+
+    },
+
+    render: async function() {
+      // const { value } = parseRequestUrl();
+      // const products = await getProductsSpring({ searchKeyword: "all" });
+      // if (products.error) {
+      //     return `<div class="error">${products.error}</div>`;
+      // }
+    const productsTshirt = await getProductsSpring({searchKeyword: "tshirt",});
+    if (productsTshirt.error) { return `<div class="error">${productsTshirt.error}</div>`;}
+    console.log({ productsTshirt });
+    if(this.sortTshirt === "ascPrice")
+        productsTshirt.sort((a, b) => a.price - b.price);
+    if (this.sortTshirt === "desPrice")
+        productsTshirt.sort((a, b) => b.price - a.price);
+    if (this.sortTshirt === "ascRating")
+        productsTshirt.sort((a, b) => a.rating - b.rating);
+    if (this.sortTshirt === "desRating")
+        productsTshirt.sort((a, b) => b.rating - a.rating);    
+
+
+    const productsJean = await getProductsSpring({ searchKeyword: "jean",});
+    if (productsJean.error) { return `<div class="error">${productsJean.error}</div>`;}
+    console.log({ productsJean });
+    if(this.sortJean === "ascPrice")
+        productsJean.sort((a, b) => a.price - b.price);
+    if (this.sortJean === "desPrice")
+        productsJean.sort((a, b) => b.price - a.price);
+    if (this.sortJean === "ascRating")
+        productsJean.sort((a, b) => a.rating - b.rating);
+    if (this.sortJean === "desRating")
+        productsJean.sort((a, b) => b.rating - a.rating);  
+
+    const productsJacket = await getProductsSpring({searchKeyword: "jacket",});
+    if (productsJacket.error) {return `<div class="error">${productsJacket.error}</div>`;}
+    console.log({ productsJacket });
+    if(this.sortJacket === "ascPrice")
+        productsJacket.sort((a, b) => a.price - b.price);
+    if (this.sortJacket === "desPrice")
+        productsJacket.sort((a, b) => b.price - a.price);
+    if (this.sortJacket === "ascRating")
+        productsJacket.sort((a, b) => a.rating - b.rating);
+    if (this.sortJacket === "desRating")
+        productsJacket.sort((a, b) => b.rating - a.rating);  
+
+      // const { products } = data;
+      // console.log(products);
     return `
 
-
-    
-    <ul class="products>
 
     <!--homescreen products sections-->
     <section class="bg-white py-8">
@@ -85,36 +189,148 @@ const headernew = {
 
 
 
-    <nav id="Category" class="w-full z-30 top-0 px-6 pt-10">
+    <nav id="Category" class="w-full px-6 mt-20 border-t border-gray-400">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
-        <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+        <span class="uppercase font-bold text-gray-800 text-4xl" >
     T-Shirts
-        </a>
+        </span>
 
-        <div class="flex items-center" id="Category-nav-content">
-
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-                <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <div class="dropdown">
+            <span class="inline-block">
+                <svg class="fill-current hover:cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                 </svg>
-            </a>
-
-            <!--a class="pl-3 inline-block no-underline hover:text-black" href="#">
-                <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z" />
-                </svg>
-            </a-->
-
+            </span>
+            <div class="dropdown-content absolute z-10 bg-blue-100 shadow-2xl hidden">
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="tshirt-asc-rating">Asc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="tshirt-des-rating">Desc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="tshirt-asc-price">Asc Price</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="tshirt-des-price">Desc Price</span>
+            </div>
         </div>
     </div>
     </nav>
 
     
-        ${products
+    <ul class="products grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-x-8 sm:gap-x-24">
+        ${productsTshirt
           .map(
             (product) =>
               `
+        <li>
+        <div class="product">
+    
+          <div class="flex justify-center">
+            <a href="/#/product/${product.id}">
+                <img class="hover:grow hover:shadow-lg" src="${
+                  product.image
+                }" alt="${product.name}" />
+            </a>
+            </div>
+                <p class="pt-3 flex items-center justify-between">
+                    <p class="product-name">
+                    <a href="/#/product/${product.id}">${product.name}</a></p>
+                </p>
+                <P class="product-rating">${Rating.render({
+                  value: product.rating,
+                  text: `${product.numReviews} reviews`,
+                })}</p>
+                <p class="product-brand">${product.brand}</p>
+                <p class="pt-1 text-gray-900">$${product.price.toFixed(2)}</p>
+             
+        </div>
+        </li>
+        `
+          )
+          .join("\n")}
+    </ul>
+
+    <nav id="Category" class="w-full z-30 top-0 px-6 mt-20 border-t border-gray-400">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
+
+        <span class="uppercase tracking-wide font-bold text-gray-800 text-4xl ">
+    Jeans
+        </span>
+
+    <div class="dropdown">
+            <span class="inline-block">
+                <svg class="fill-current hover:cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
+                </svg>
+            </span>
+            <div class="dropdown-content absolute z-10 bg-blue-100 shadow-2xl hidden">
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-asc-rating">Asc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-des-rating">Desc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-asc-price">Asc Price</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-des-price">Desc Price</span>
+            </div>
+        </div>
+    </div>
+    </nav>
+
+     <ul class="products grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-x-8 sm:gap-x-24">
+          ${productsJean
+            .map(
+              (product) =>
+                `
+        <li>
+        <div class="product">
+    
+                <div class="flex justify-center items-center">
+            <a href="/#/product/${product.id}">
+                <img class="hover:grow hover:shadow-lg" src="${
+                  product.image
+                }" alt="${product.name}" />
+            </a>
+            </div>
+            
+                <p class="pt-3 flex items-center justify-between">
+                    <p class="product-name">
+                    <a href="/#/product/${product.id}">${product.name}</a></p>
+                </p>
+                <P class="product-rating">${Rating.render({
+                  value: product.rating,
+                  text: `${product.numReviews} reviews`,
+                })}</p>
+                <p class="product-brand">${product.brand}</p>
+                <p class="pt-1 text-gray-900">$${product.price.toFixed(2)}</p>
+     
+        </div>
+        </li>
+        `
+            )
+            .join("\n")}
+    </ul>
+
+        <nav id="Category" class="w-full z-30 top-0 px-6 mt-20 border-t border-gray-400">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
+
+        <span class="uppercase tracking-wide font-bold text-gray-800 text-4xl ">
+    Jacket
+        </span>
+
+         <div class="dropdown">
+            <span class="inline-block">
+                <svg class="fill-current hover:cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
+                </svg>
+            </span>
+            <div class="dropdown-content absolute z-10 bg-blue-100 shadow-2xl hidden">
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 hover:cursor-pointer" id="jacket-asc-rating">Asc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jacket-des-rating">Desc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jacket-asc-price">Asc Price</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jacket-des-price">Desc Price</span>
+            </div>
+        </div>
+    </div>
+    </nav>
+
+    <ul class="products grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-x-8 sm:gap-x-24">
+       ${productsJacket
+         .map(
+           (product) =>
+             `
         <li>
         <div class="product">
     
@@ -138,9 +354,9 @@ const headernew = {
         </div>
         </li>
         `
-          )
-          .join("\n")}
-
+         )
+         .join("\n")}
+    </ul>
 
         <div class="bg-white pt-8" id="aboutus">
             <div class="container pt-8 px-6 mx-auto border-t border-gray-400">
@@ -215,8 +431,7 @@ const headernew = {
 
      </div>
      </section>
-        
-    </ul>`;
-  },
+    `;
+    },
 };
-export default headernew;
+export default HomeScreen;
