@@ -1,7 +1,7 @@
 import { hideLoading, parseRequestUrl, showLoading } from "./utils.js";
 import Header from "./components/Header.js"
 import HomeScreen from "./screens/HomeScreen.js";
-import StoreScreen from "./screens/StoreScreen.js";
+import ApparelScreen from "./screens/ApparelScreen.js";
 import Error404Screen from "./screens/Error404Screen.js";
 import ProductScreen from "./screens/ProductScreen.js";
 import CartScreen from "./screens/CartScreen.js"
@@ -27,7 +27,7 @@ import CategoryJeanScreen from "./screens/CategoryJeanScreen.js";
 
 const routes = {
   "/": HomeScreen,
-  "/store": StoreScreen,
+  "/apparel": ApparelScreen,
   "/storejackets": CategoryJacketScreen,
   "/storetshirts": CategoryTshirtScreen,
   "/storejeans": CategoryJeanScreen,

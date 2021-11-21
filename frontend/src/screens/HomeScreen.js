@@ -21,7 +21,7 @@ const HomeCategoryScreen = {
 
 
     
-    <ul class="products>
+    <ul class="products">
 
     <!--homescreen products sections-->
     <section class="bg-white py-8">

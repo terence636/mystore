@@ -6,7 +6,7 @@ import { reRender } from "../utils.js";
 
 // import data from '../data.js'
 
-const StoreScreen = {
+const ApparelScreen = {
     sortTshirt:"none",
     sortJean:"none",
     sortJacket:"none",
@@ -18,19 +18,19 @@ const StoreScreen = {
         const sortTshirtDesRating = document.getElementById("tshirt-des-rating");
         sortTshirtAscPrice.addEventListener("click", () => {
             this.sortTshirt = "ascPrice";
-            reRender(StoreScreen);
+            reRender(ApparelScreen);
         });
         sortTshirtDesPrice.addEventListener("click", () => {
             this.sortTshirt = "desPrice";
-            reRender(StoreScreen);
+            reRender(ApparelScreen);
         });
         sortTshirtAscRating.addEventListener("click", () => {
             this.sortTshirt = "ascRating";
-            reRender(StoreScreen);
+            reRender(ApparelScreen);
         });
         sortTshirtDesRating.addEventListener("click", () => {
             this.sortTshirt = "desRating";
-            reRender(StoreScreen);
+            reRender(ApparelScreen);
         });
 
         const sortJeanAscPrice = document.getElementById("jean-asc-price");
@@ -39,19 +39,19 @@ const StoreScreen = {
         const sortJeanDesRating = document.getElementById("jean-des-rating");
         sortJeanAscPrice.addEventListener("click", () => {
             this.sortJean = "ascPrice";
-            reRender(StoreScreen);
+            reRender(ApparelScreen);
         });
         sortJeanDesPrice.addEventListener("click", () => {
             this.sortJean = "desPrice";
-            reRender(StoreScreen);
+            reRender(ApparelScreen);
         });
         sortJeanAscRating.addEventListener("click", () => {
             this.sortJean = "ascRating";
-            reRender(StoreScreen);
+            reRender(ApparelScreen);
         });
         sortJeanDesRating.addEventListener("click", () => {
             this.sortJean = "desRating";
-            reRender(StoreScreen);
+            reRender(ApparelScreen);
         });
 
         const sortJacketAscPrice = document.getElementById("jacket-asc-price");
@@ -60,19 +60,19 @@ const StoreScreen = {
         const sortJacketDesRating = document.getElementById("jacket-des-rating");
         sortJacketAscPrice.addEventListener("click", () => {
             this.sortJacket = "ascPrice";
-            reRender(StoreScreen);
+            reRender(ApparelScreen);
         });
         sortJacketDesPrice.addEventListener("click", () => {
             this.sortJacket = "desPrice";
-            reRender(StoreScreen);
+            reRender(ApparelScreen);
         });
         sortJacketAscRating.addEventListener("click", () => {
             this.sortJacket = "ascRating";
-            reRender(StoreScreen);
+            reRender(ApparelScreen);
         });
         sortJacketDesRating.addEventListener("click", () => {
             this.sortJacket = "desRating";
-            reRender(StoreScreen);
+            reRender(ApparelScreen);
         });
 
 
@@ -300,78 +300,10 @@ const StoreScreen = {
          .join("\n")}
     </ul>
 
-        <!--div class="bg-white pt-8" id="aboutus">
-            <div class="container pt-8 px-6 mx-auto border-t border-gray-400">
-                <h3 class="font-bold text-gray-900">About us</h3>
-        
-                <p class="mt-8 mb-8">GenSGStore is one of the leading one-stop e-commerce site that allows you to purchase all your
-                    fashion clothes at the comfort of your home. Our products are of very good materials and is value for money. We offer 
-                    free delivery for minimum purchases of $20. We also offer membership with 15% discount. We have been selling 
-                    fashion clothes online for the past 20 years and have receive plenty of customers feedback for our product and services.
-                    <br>
-                        
-                <p class="mb-8">As a team we view sustainability as an ongoing effort and evolution. We continuously ask
-                    ‘How can we do better?’ so the comfort you find in the softness of our fabrics is equal to the satisfaction
-                    you feel supporting a brand that takes care of its People. We sweat the small stuff so you don’t have to.
-                    Our loyal long-time customers love the softness and comfort of our products, and feel good about the ways we
-                    support and empower our employees and production partners.</p>
-
-                <p class="mb-8">GenSGStore has worked closely with the same production team in China for over 15 years,
-                    processing renewable and selectively-harvested organic bamboo into fabric in a closed-loop viscose process.
-                    We use low-impact AZO- free dyes to create a finished product that is crazy soft, gentle on the earth, and
-                    safe for everyone involved. From the production partners throughout our supply chain, to our crew here at
-                    GenSGStore Headquarters, to the end consumer, YOU.</p>
-        
-                <p class="mb-8">GenSGStore was formed in 2001 by 3 entreprenuers. They ran a small business from their
-                    home, selling T-shirts. The business grew faster than they could have ever imagined.
-                    As the idea of a silk sleeping bag caught on, they began manufacturing “travel” clothing from the silk as
-                    well. And so the first apparel line was launched, soon followed by silk bedding. The company continued to
-                    grow.
-                    Then, at a fabric trade show in 2005, they met a young man who had a vision of his own. A new technology was
-                    emerging to convert wild-growing bamboo into incredibly soft, sumptuous fabric with a fraction of organic
-                    cotton’s environmental footprint.
-                    With the addition of bamboo clothing and bedding, the company experienced yet another surge in growth. 
-                    Now in its 20th year, ownership has transitioned to a pair of longtime employees with a vision to lead 
-                    GenSGStore into its fullest expression as a sustainable clothing, bedding, and nightwear brand with broad
-                    multigenerational appeal. GenSGStore is committed to fair trade practices from source to shelf, and still 
-                    thrilled each day by the adventure that lies ahead!</p>
-
-                    <!--img src="https://www.volusion.com/blog/content/images/2017/04/Getting-Started-with-Volusion-How-to-Build-Your-About-Us-Page.jpg" height="70%"  width= "40%"-->
-            </div>
-        
-            <!--div class="container mx-auto bg-white pt-8 border-t border-gray-400">
-                <div class="container flex px-3 pt-8 ">
-                    <div class="w-full mx-auto flex justify-between flex-wrap">
-                        <div class="flex w-1/2">
-                            <div class="px-3 md:px-0">
-                                <h3 class="font-bold text-gray-900">Contact us</h3>
-                                <p class="pt-4">
-                                    GenSGStore Pte. Ltd.<br>
-                                    46, Marina Bay Sands<br>
-                                    #17-356<br>
-                                    Singapore 321046<br>
-                                    Tel: 6281 4579<br>
-                                </p>
-                                <p class="pt-8">
-                                    <h3 class="pb-4 font-bold text-gray-900">Operating Hours</h3>
-                                    Mondays to Fridays (exclude Public Holidays)<br>
-                                    9am to 6pm<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="min-w-sm pt-8 sm:pt-0 ">
-                            <div class="px-3 md:px-0">
-                                <h3 class="font-bold text-gray-900">Visit us @ FB</h3>
-                                <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">GenSGStore@facebook.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        v>
     </div>
 </section>
     `;
     },
 };
-export default StoreScreen;
+export default ApparelScreen;
