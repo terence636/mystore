@@ -94,7 +94,7 @@ const CategoryJacketScreen = {
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
         <span class="uppercase tracking-wide font-bold text-gray-800 text-4xl ">
-            Jacket
+        Coolest jackets at unbeatable prices
         </span>
 
          <div class="dropdown">

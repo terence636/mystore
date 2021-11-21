@@ -33,6 +33,26 @@ const ApparelScreen = {
             reRender(ApparelScreen);
         });
 
+        const sortJeanAscPrice = document.getElementById("jean-asc-price");
+        const sortJeanDesPrice = document.getElementById("jean-des-price");
+        const sortJeanAscRating = document.getElementById("jean-asc-rating");
+        const sortJeanDesRating = document.getElementById("jean-des-rating");
+        sortJeanAscPrice.addEventListener("click", () => {
+            this.sortJean = "ascPrice";
+            reRender(ApparelScreen);
+        });
+        sortJeanDesPrice.addEventListener("click", () => {
+            this.sortJean = "desPrice";
+            reRender(ApparelScreen);
+        });
+        sortJeanAscRating.addEventListener("click", () => {
+            this.sortJean = "ascRating";
+            reRender(ApparelScreen);
+        });
+        sortJeanDesRating.addEventListener("click", () => {
+            this.sortJean = "desRating";
+            reRender(ApparelScreen);
+        });
 
         const sortJacketAscPrice = document.getElementById("jacket-asc-price");
         const sortJacketDesPrice = document.getElementById("jacket-des-price");
@@ -108,30 +128,15 @@ const ApparelScreen = {
 
 
 <!--homescreen products sections-->
-
-<div class="bg-white pt-8">
-    <div class="container pt-8 px-6 mx-auto ">
-        <h3 class="font-bold text-gray-900">Makito Apparel</h3>
-
-        <p class="mt-8 mb-8">We offer you the most exciting and unique mens and boys casual and smart wear.<br> Find trendy and high quality, 
-        value for money clothing for all occasions: work wear, dinner wear, formal wear, party wear and much more.<br> <br>
-        Understated elegance is our philosophy, we aim to make your life easier - we take all the hard work out of 
-        shopping as we only select the best designs to ensure quality and value.</p>
-
-    </div>       
-</div>
-
-
-
 <section>
    
     <nav id="Category" class="w-full px-6 mt-20 border-t border-gray-400">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
     
-        <span class="uppercase font-bold text-gray-800 text-4xl">
-    Search Filter
-        </span>
+        <a class="uppercase font-bold text-gray-800 text-4xl" href="/#/storetshirts">
+    T-Shirts
+        </a>
 
         <div class="dropdown">
             <span class="inline-block">
@@ -183,6 +188,29 @@ const ApparelScreen = {
           .join("\n")}
     </ul>
 
+    <nav id="Category" class="w-full z-30 top-0 px-6 mt-20 border-t border-gray-400">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
+
+        <a class="uppercase font-bold text-gray-800 text-4xl" href="/#/storejeans">
+    Jeans
+        </a>
+
+    <div class="dropdown">
+            <span class="inline-block">
+                <svg class="fill-current hover:cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
+                </svg>
+            </span>
+            <div class="dropdown-content absolute z-10 bg-blue-100 shadow-2xl hidden">
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-asc-rating">Asc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-des-rating">Desc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-asc-price">Asc Price</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-des-price">Desc Price</span>
+            </div>
+        </div>
+    </div>
+    </nav>
+
      <ul class="products grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-x-8 sm:gap-x-24">
           ${productsJean
             .map(
@@ -209,13 +237,36 @@ const ApparelScreen = {
                 })}</p>
                 <p class="product-brand">${product.brand}</p>
                 <p class="pt-1 text-gray-900">$${product.price.toFixed(2)}</p>
-   
+     
         </div>
         </li>
         `
             )
             .join("\n")}
     </ul>
+
+        <nav id="Category" class="w-full z-30 top-0 px-6 mt-20 border-t border-gray-400">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
+
+        <a class="uppercase font-bold text-gray-800 text-4xl" href="/#/storejackets">
+    Jacket
+        </a>
+
+         <div class="dropdown">
+            <span class="inline-block">
+                <svg class="fill-current hover:cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
+                </svg>
+            </span>
+            <div class="dropdown-content absolute z-10 bg-blue-100 shadow-2xl hidden">
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 hover:cursor-pointer" id="jacket-asc-rating">Asc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jacket-des-rating">Desc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jacket-asc-price">Asc Price</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jacket-des-price">Desc Price</span>
+            </div>
+        </div>
+    </div>
+    </nav>
 
     <ul class="products grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-x-8 sm:gap-x-24">
        ${productsJacket
@@ -249,7 +300,7 @@ const ApparelScreen = {
          .join("\n")}
     </ul>
 
-    
+        v>
     </div>
 </section>
     `;
