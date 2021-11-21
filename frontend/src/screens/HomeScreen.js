@@ -86,30 +86,33 @@ const HomeCategoryScreen = {
     <div class="prod_category">
         <!-- Jackets category-->
         <div class="bkgd_jackets"></div>
-        <div class="img_jackets"></div>
+        <a href="/#/storejackets">
+        <div class="img_jackets hover:grow hover:shadow-lg"></div>
             <span class="title_jacket">Jackets</span>
             <span class="copy_jacket">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra et risus laoreet eu at commodo phasellus eget id. 
             Amet, eget faucibus quam tempus. Mi felis facilisis ultrices enim in in semper. Quis ullamcorper adipiscing in mauris at id quam. 
             Quisque orci, nisl eget eu, faucibus nascetur nulla. Non sed sed eget ullamcorper.
-            </span>
+            </span></a>
 
         <!-- Tshirts category-->
         <div class="bkgd_tshirts"></div>
-        <div class="img_tshirts"></div>
+        <a href="/#/storetshirts">
+        <div class="img_tshirts hover:grow hover:shadow-lg"></div>
         <span class="title_tshirts">T-shirts</span>
             <span class="copy_tshirts">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra et risus laoreet eu at commodo phasellus eget id. 
             Amet, eget faucibus quam tempus. Mi felis facilisis ultrices enim in in semper. Quis ullamcorper adipiscing in mauris at id quam. 
             Quisque orci, nisl eget eu, faucibus nascetur nulla. Non sed sed eget ullamcorper.
-            </span>
+            </span></a>
 
         <!-- Jeans category -->
         <div class="bkgd_jeans"></div> 
-        <div class="img_jeans"></div>
+        <a href="/#/storejeans">
+        <div class="img_jeans hover:grow hover:shadow-lg"></div>
             <span class="title_jeans">Jeans</span>
             <span class="copy_jeans">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra et risus laoreet eu at commodo phasellus eget id. 
             Amet, eget faucibus quam tempus. Mi felis facilisis ultrices enim in in semper. Quis ullamcorper adipiscing in mauris at id quam. 
             Quisque orci, nisl eget eu, faucibus nascetur nulla. Non sed sed eget ullamcorper.
-            </span>
+            </span></a>
     </div>
 
     

@@ -14,6 +14,8 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen.js";
 import OrderScreen from "./screens/OrderScreen.js";
 import AboutUs from "./screens/AboutUs.js";
 import CategoryJacketScreen from "./screens/CategoryJacketScreen.js";
+import CategoryTshirtScreen from "./screens/CategoryTshirtScreen.js";
+import CategoryJeanScreen from "./screens/CategoryJeanScreen.js";
 
 // import DashboardScreen from "./screens/DashboardScreen.js";
 
@@ -26,7 +28,9 @@ import CategoryJacketScreen from "./screens/CategoryJacketScreen.js";
 const routes = {
   "/": HomeScreen,
   "/store": StoreScreen,
-  "/storejacket": CategoryJacketScreen,
+  "/storejackets": CategoryJacketScreen,
+  "/storetshirts": CategoryTshirtScreen,
+  "/storejeans": CategoryJeanScreen,
   "/product/:id": ProductScreen,
   "/cart/:id": CartScreen,
   "/order/:id": OrderScreen,
