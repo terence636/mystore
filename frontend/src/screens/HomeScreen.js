@@ -118,6 +118,7 @@ const HomeCategoryScreen = {
     
         <div class="bg-white pt-8" id="aboutus">
             <div class="container pt-8 px-6 mx-auto border-t border-gray-400">
+            <img src = "https://img.shein.com/images2/2018/11/29/15434606131933594897.jpg" height="70%"  width= "40%">
                 <h3 class="font-bold text-gray-900">About us</h3>
         
                 <p class="mt-8 mb-8">GenSGStore is one of the leading one-stop e-commerce site that allows you to purchase all your
@@ -126,17 +127,7 @@ const HomeCategoryScreen = {
                     fashion clothes online for the past 20 years and have receive plenty of customers feedback for our product and services.
                     <br>
                         
-                <p class="mb-8">As a team we view sustainability as an ongoing effort and evolution. We continuously ask
-                    ‘How can we do better?’ so the comfort you find in the softness of our fabrics is equal to the satisfaction
-                    you feel supporting a brand that takes care of its People. We sweat the small stuff so you don’t have to.
-                    Our loyal long-time customers love the softness and comfort of our products, and feel good about the ways we
-                    support and empower our employees and production partners.</p>
-
-                <p class="mb-8">GenSGStore has worked closely with the same production team in China for over 15 years,
-                    processing renewable and selectively-harvested organic bamboo into fabric in a closed-loop viscose process.
-                    We use low-impact AZO- free dyes to create a finished product that is crazy soft, gentle on the earth, and
-                    safe for everyone involved. From the production partners throughout our supply chain, to our crew here at
-                    GenSGStore Headquarters, to the end consumer, YOU.</p>
+                
         
                 <p class="mb-8">GenSGStore was formed in 2001 by 3 entreprenuers. They ran a small business from their
                     home, selling T-shirts. The business grew faster than they could have ever imagined.
@@ -152,7 +143,7 @@ const HomeCategoryScreen = {
                     multigenerational appeal. GenSGStore is committed to fair trade practices from source to shelf, and still 
                     thrilled each day by the adventure that lies ahead!</p>
 
-                    <!--img src="https://www.volusion.com/blog/content/images/2017/04/Getting-Started-with-Volusion-How-to-Build-Your-About-Us-Page.jpg" height="70%"  width= "40%"-->
+                    <img src="https://www.volusion.com/blog/content/images/2017/04/Getting-Started-with-Volusion-How-to-Build-Your-About-Us-Page.jpg" height="70%"  width= "40%">
             </div>
         
             <div class="container mx-auto bg-white pt-8 border-t border-gray-400">
