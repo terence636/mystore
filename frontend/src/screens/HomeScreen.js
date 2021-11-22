@@ -185,10 +185,7 @@ const HomeCategoryScreen = {
                 </div>
             </div>
         </div>
-
-
-
-
+    
      </div>
      </section>
         

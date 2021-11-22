@@ -33,6 +33,26 @@ const ApparelScreen = {
             reRender(ApparelScreen);
         });
 
+        const sortJeanAscPrice = document.getElementById("jean-asc-price");
+        const sortJeanDesPrice = document.getElementById("jean-des-price");
+        const sortJeanAscRating = document.getElementById("jean-asc-rating");
+        const sortJeanDesRating = document.getElementById("jean-des-rating");
+        sortJeanAscPrice.addEventListener("click", () => {
+            this.sortJean = "ascPrice";
+            reRender(ApparelScreen);
+        });
+        sortJeanDesPrice.addEventListener("click", () => {
+            this.sortJean = "desPrice";
+            reRender(ApparelScreen);
+        });
+        sortJeanAscRating.addEventListener("click", () => {
+            this.sortJean = "ascRating";
+            reRender(ApparelScreen);
+        });
+        sortJeanDesRating.addEventListener("click", () => {
+            this.sortJean = "desRating";
+            reRender(ApparelScreen);
+        });
 
         const sortJacketAscPrice = document.getElementById("jacket-asc-price");
         const sortJacketDesPrice = document.getElementById("jacket-des-price");
@@ -65,7 +85,7 @@ const ApparelScreen = {
       // if (products.error) {
       //     return `<div class="error">${products.error}</div>`;
       // }
-    const productsTshirt = await getProductsSpring({searchKeyword: "tshirt",});
+    const productsTshirt = await getProductsSpring({searchKeyword: "all",});
     if (productsTshirt.error) { return `<div class="error">${productsTshirt.error}</div>`;}
     console.log({ productsTshirt });
     if(this.sortTshirt === "ascPrice")
@@ -78,29 +98,6 @@ const ApparelScreen = {
         productsTshirt.sort((a, b) => b.rating - a.rating);    
 
 
-    const productsJean = await getProductsSpring({ searchKeyword: "jean",});
-    if (productsJean.error) { return `<div class="error">${productsJean.error}</div>`;}
-    console.log({ productsJean });
-    if(this.sortJean === "ascPrice")
-        productsJean.sort((a, b) => a.price - b.price);
-    if (this.sortJean === "desPrice")
-        productsJean.sort((a, b) => b.price - a.price);
-    if (this.sortJean === "ascRating")
-        productsJean.sort((a, b) => a.rating - b.rating);
-    if (this.sortJean === "desRating")
-        productsJean.sort((a, b) => b.rating - a.rating);  
-
-    const productsJacket = await getProductsSpring({searchKeyword: "jacket",});
-    if (productsJacket.error) {return `<div class="error">${productsJacket.error}</div>`;}
-    console.log({ productsJacket });
-    if(this.sortJacket === "ascPrice")
-        productsJacket.sort((a, b) => a.price - b.price);
-    if (this.sortJacket === "desPrice")
-        productsJacket.sort((a, b) => b.price - a.price);
-    if (this.sortJacket === "ascRating")
-        productsJacket.sort((a, b) => a.rating - b.rating);
-    if (this.sortJacket === "desRating")
-        productsJacket.sort((a, b) => b.rating - a.rating);  
 
       // const { products } = data;
       // console.log(products);
@@ -108,30 +105,15 @@ const ApparelScreen = {
 
 
 <!--homescreen products sections-->
-
-<div class="bg-white pt-8">
-    <div class="container pt-8 px-6 mx-auto ">
-        <h3 class="font-bold text-gray-900">Makito Apparel</h3>
-
-        <p class="mt-8 mb-8">We offer you the most exciting and unique mens and boys casual and smart wear.<br> Find trendy and high quality, 
-        value for money clothing for all occasions: work wear, dinner wear, formal wear, party wear and much more.<br> <br>
-        Understated elegance is our philosophy, we aim to make your life easier - we take all the hard work out of 
-        shopping as we only select the best designs to ensure quality and value.</p>
-
-    </div>       
-</div>
-
-
-
 <section>
    
     <nav id="Category" class="w-full px-6 mt-20 border-t border-gray-400">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
     
-        <span class="uppercase font-bold text-gray-800 text-4xl">
-    Search Filter
-        </span>
+        <a class="uppercase font-bold text-gray-800 text-4xl" href="/#/storetshirts">
+    T-Shirts
+        </a>
 
         <div class="dropdown">
             <span class="inline-block">
@@ -183,73 +165,7 @@ const ApparelScreen = {
           .join("\n")}
     </ul>
 
-     <ul class="products grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-x-8 sm:gap-x-24">
-          ${productsJean
-            .map(
-              (product) =>
-                `
-        <li>
-        <div class="product">
-    
-                <div class="flex justify-center items-center">
-            <a href="/#/product/${product.id}">
-                <img class="hover:grow hover:shadow-lg" src="${
-                  product.image
-                }" alt="${product.name}" />
-            </a>
-            </div>
-            
-                <p class="pt-3 flex items-center justify-between">
-                    <p class="product-name">
-                    <a href="/#/product/${product.id}">${product.name}</a></p>
-                </p>
-                <P class="product-rating">${Rating.render({
-                  value: product.rating,
-                  text: `${product.numReviews} reviews`,
-                })}</p>
-                <p class="product-brand">${product.brand}</p>
-                <p class="pt-1 text-gray-900">$${product.price.toFixed(2)}</p>
-   
-        </div>
-        </li>
-        `
-            )
-            .join("\n")}
-    </ul>
-
-    <ul class="products grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-x-8 sm:gap-x-24">
-       ${productsJacket
-         .map(
-           (product) =>
-             `
-        <li>
-        <div class="product">
-    
-            <a href="/#/product/${product.id}">
-                <img class="hover:grow hover:shadow-lg" src="${
-                  product.image
-                }" alt="${product.name}" />
-            </a>
-            
-                <p class="pt-3 flex items-center justify-between">
-                    <p class="product-name">
-                    <a href="/#/product/${product.id}">${product.name}</a></p>
-                </p>
-                <P class="product-rating">${Rating.render({
-                  value: product.rating,
-                  text: `${product.numReviews} reviews`,
-                })}</p>
-                <p class="product-brand">${product.brand}</p>
-                <p class="pt-1 text-gray-900">$${product.price.toFixed(2)}</p>
-     
-        </div>
-        </li>
-        `
-         )
-         .join("\n")}
-    </ul>
-
-    
+        
     </div>
 </section>
     `;
