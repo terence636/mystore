@@ -795,8 +795,11 @@ td {
   width: 75%;
 }
 
-@media only screen and (min-width: 800px) {
-  makito {
-    display: flex
-  }
+/* About us pictures */
+.aboutus {
+  height: 70%;  
+  width: 40%;
+  background: url("https://img.shein.com/images2/2018/11/29/15434606851110958515.jpg");
+  position: right;
+  align-items: center;
 }

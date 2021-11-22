@@ -24,7 +24,7 @@ const Header = {
             : ""
         }  
         </li>
-        <li><a class="category hover:text-orange-200" href="#aboutus">About Us</a></li>
+        <li><a class="category hover:text-orange-200" href="/#/aboutus">About Us</a></li>
       </ul>
       <!-- Header Icons -->
       <div class="flex items-center space-x-5">
