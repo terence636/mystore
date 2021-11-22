@@ -794,3 +794,23 @@ td {
   top: 45%;
   width: 75%;
 }
+
+/* About us pictures */
+.aboutus {
+  height: 70%;  
+  width: 40%;
+  background: url("https://img.shein.com/images2/2018/11/29/15434606851110958515.jpg");
+  /* background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1; */
+  position: right;
+  /* top: 1205px;
+  left: 111px;
+  border-top-left-radius: 90px;
+  border-top-right-radius: 90px;
+  border-bottom-left-radius: 90px;
+  border-bottom-right-radius: 90px;
+  overflow: hidden; */
+  align-items: center;
+}
