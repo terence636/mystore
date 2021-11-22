@@ -4,21 +4,21 @@ const AboutUs = {
   <img src = "https://img.shein.com/images2/2018/11/29/15434606131933594897.jpg"><br>
       <h3 class="font-bold text-gray-900">About us</h3>
 
-      <p class="mt-8 mb-8">GenSGStore is one of the leading one-stop e-commerce site that allows you to purchase all your
+      <p class="mt-8 mb-8">MAKITO is one of the leading one-stop e-commerce site that allows you to purchase all your
           fashion clothes at the comfort of your home. Our products are of very good materials and is value for money. We offer 
           free delivery for minimum purchases of $20. We also offer membership with 15% discount. We have been selling 
           fashion clothes online for the past 20 years and have receive plenty of customers feedback for our product and services.
           <br>
           <div class = "flex flex-wrap justify-between" >
-         <br> 
+          
          
-         <img src="https://img.shein.com/images2/2018/11/29/15434606512441018221.jpg" height="70%"  width= "40%" ><br>
-         <img src="https://img.shein.com/images2/2018/11/29/15434606851110958515.jpg" height="70%"  width= "40%" position = right ><br>
+         <img src="https://img.shein.com/images2/2018/11/29/15434606512441018221.jpg" height="70%"  width= "40%"><br>
+         <img src="https://img.shein.com/images2/2018/11/29/15434606851110958515.jpg" height="70%"  width= "40%"><br>
          </div>
      </div>         
       
     <br> <div class="container pt-8 px-6 mx-auto border-t border-gray-400">
-      <p class="mb-8">GenSGStore was formed in 2001 by 3 entreprenuers. They ran a small business from their
+      <p class="mb-8">MAKITO was formed in 2001 by 3 entreprenuers. They ran a small business from their
           home, selling T-shirts. The business grew faster than they could have ever imagined.
           As the idea of a silk sleeping bag caught on, they began manufacturing “travel” clothing from the silk as
           well. And so the first apparel line was launched, soon followed by silk bedding. The company continued to
@@ -28,13 +28,13 @@ const AboutUs = {
           cotton’s environmental footprint.
           With the addition of bamboo clothing and bedding, the company experienced yet another surge in growth. 
           Now in its 20th year, ownership has transitioned to a pair of longtime employees with a vision to lead 
-          GenSGStore into its fullest expression as a sustainable clothing, bedding, and nightwear brand with broad
-          multigenerational appeal. GenSGStore is committed to fair trade practices from source to shelf, and still 
+          MAKITO into its fullest expression as a sustainable clothing, bedding, and nightwear brand with broad
+          multigenerational appeal. MAKITO is committed to fair trade practices from source to shelf, and still 
           thrilled each day by the adventure that lies ahead!</p>
           
           <div class = "flex flex-wrap justify-between">
           <img src="https://img.shein.com/images2/2018/11/29/15434607113621832211.jpg" height="70%"  width= "40%"><br>
-          <img src="https://img.shein.com/images2/2018/11/29/15434607782056434179.jpg" height="70%"  width= "40%" align-items: center><br>
+          <img src="https://img.shein.com/images2/2018/11/29/15434607782056434179.jpg" height="70%"  width= "40%"><br>
           </div>
           </div>
 

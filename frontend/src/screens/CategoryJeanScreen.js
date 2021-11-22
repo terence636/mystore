@@ -96,7 +96,8 @@ const CategoryJeanScreen = {
         </span>
 
     <div class="dropdown">
-            <span class="inline-block">
+            <span class="inline-block flex">
+                Sort
                 <svg class="fill-current hover:cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                 </svg>
