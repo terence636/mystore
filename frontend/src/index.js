@@ -1,7 +1,8 @@
+/* eslint-disable import/no-named-as-default-member */
 import { hideLoading, parseRequestUrl, showLoading } from "./utils.js";
 import Header from "./components/Header.js"
 import HomeScreen from "./screens/HomeScreen.js";
-import StoreScreen from "./screens/StoreScreen.js";
+import ApparelScreen from "./screens/ApparelScreen.js";
 import Error404Screen from "./screens/Error404Screen.js";
 import ProductScreen from "./screens/ProductScreen.js";
 import CartScreen from "./screens/CartScreen.js"
@@ -16,6 +17,12 @@ import AboutUs from "./screens/AboutUs.js";
 import CategoryJacketScreen from "./screens/CategoryJacketScreen.js";
 import DashboardScreen from "./screens/DashboardScreen.js";
 import ProductListScreen from "./screens/ProductListScreen.js";
+import CategoryTshirtScreen from "./screens/CategoryTshirtScreen.js";
+import CategoryJeanScreen from "./screens/CategoryJeanScreen.js";
+
+// import DashboardScreen from "./screens/DashboardScreen.js";
+
+// import ProductListScreen from "./srceens/ProductListScreen";
 // import ProductEditScreen from "./srceens/ProductEditScreen";
 // import OrderListScreen from "./srceens/OrderListScreen";
 // import Aside from "./components/Aside";
@@ -23,8 +30,10 @@ import ProductListScreen from "./screens/ProductListScreen.js";
 
 const routes = {
   "/": HomeScreen,
-  "/store": StoreScreen,
-  "/storejacket": CategoryJacketScreen,
+  "/apparel": ApparelScreen,
+  "/storejackets": CategoryJacketScreen,
+  "/storetshirts": CategoryTshirtScreen,
+  "/storejeans": CategoryJeanScreen,
   "/product/:id": ProductScreen,
   "/cart/:id": CartScreen,
   "/order/:id": OrderScreen,

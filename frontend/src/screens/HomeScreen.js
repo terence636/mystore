@@ -21,7 +21,7 @@ const HomeCategoryScreen = {
 
 
     
-    <ul class="products>
+    <ul class="products">
 
     <!--homescreen products sections-->
     <section class="bg-white py-8">
@@ -86,30 +86,33 @@ const HomeCategoryScreen = {
     <div class="prod_category">
         <!-- Jackets category-->
         <div class="bkgd_jackets"></div>
-        <div class="img_jackets"></div>
+        <a href="/#/storejackets">
+        <div class="img_jackets hover:grow hover:shadow-lg"></div>
             <span class="title_jacket">Jackets</span>
-            <span class="copy_jacket">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra et risus laoreet eu at commodo phasellus eget id. 
-            Amet, eget faucibus quam tempus. Mi felis facilisis ultrices enim in in semper. Quis ullamcorper adipiscing in mauris at id quam. 
-            Quisque orci, nisl eget eu, faucibus nascetur nulla. Non sed sed eget ullamcorper.
-            </span>
+            <span class="copy_jacket">Impress at work by ordering these business style jackets that are smart, comfortable and convenient. 
+            You can enjoy being warm-hearted in the light color jackets, you can take the men puff jackets when you are in need of wind protection, 
+            you can take the jacket front vest when you have to walk in the cold place, the chunky men's sweaters are convenient to wear with any outfit.
+            </span></a>
 
         <!-- Tshirts category-->
         <div class="bkgd_tshirts"></div>
-        <div class="img_tshirts"></div>
+        <a href="/#/storetshirts">
+        <div class="img_tshirts hover:grow hover:shadow-lg"></div>
         <span class="title_tshirts">T-shirts</span>
-            <span class="copy_tshirts">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra et risus laoreet eu at commodo phasellus eget id. 
-            Amet, eget faucibus quam tempus. Mi felis facilisis ultrices enim in in semper. Quis ullamcorper adipiscing in mauris at id quam. 
-            Quisque orci, nisl eget eu, faucibus nascetur nulla. Non sed sed eget ullamcorper.
-            </span>
+            <span class="copy_tshirts"> Step up your style and impress your friends with this fashionable Casual Style Fashion Mens T-Shirt. 
+            Comfortable and soft, this cotton t-shirt is bound to make you look like the king of the streets. Coming in a selection of colors, 
+            it will be easy to match with anything in your wardrobe.
+            </span></a>
 
         <!-- Jeans category -->
         <div class="bkgd_jeans"></div> 
-        <div class="img_jeans"></div>
+        <a href="/#/storejeans">
+        <div class="img_jeans hover:grow hover:shadow-lg"></div>
             <span class="title_jeans">Jeans</span>
-            <span class="copy_jeans">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra et risus laoreet eu at commodo phasellus eget id. 
-            Amet, eget faucibus quam tempus. Mi felis facilisis ultrices enim in in semper. Quis ullamcorper adipiscing in mauris at id quam. 
-            Quisque orci, nisl eget eu, faucibus nascetur nulla. Non sed sed eget ullamcorper.
-            </span>
+            <span class="copy_jeans">Combine the comfort of your favorite everyday jeans with performance denim. Mens fashion jeans made with 
+            breathable stretch denim come in premium treated denim to wash, light reflecting denim for nighttime visibility, and hidden security pocket. 
+            Whether you're chilling at home or out on town, these stylish jeans are comfortable enough to wear all day long.
+            </span></a>
     </div>
 
     

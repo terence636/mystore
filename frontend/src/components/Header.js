@@ -14,7 +14,10 @@ const Header = {
       <!-- Nav Links -->
       <ul class="hidden sm:flex mx-auto font-semibold font-heading space-x-12">
         <li><a class="hover:text-orange-200" href="/#/">Home</a></li>
-        <li><a class="hover:text-orange-200" href="/#/store">Store</a></li>
+        <li><a class="hover:text-orange-200" href="/#/storejeans">Jeans</a></li>
+        <li><a class="hover:text-orange-200" href="/#/storetshirts">T-shirts</a></li>
+        <li><a class="hover:text-orange-200" href="/#/storejackets">Jackets</a></li>
+        <li><a class="hover:text-orange-200" href="/#/apparel">All Apparel</a></li>
         ${
           isAdmin
             ? `<li><a class="hover:text-orange-200" href="/#/dashboard">Dashboard</a></li>`
