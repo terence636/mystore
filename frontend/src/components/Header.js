@@ -9,7 +9,7 @@ const Header = {
   <nav class="flex justify-between  bg-green-1000 text-black fixed top-0 z-10 w-full">
     <div class="px-5 xl:px-12 py-6 flex w-full justify-between items-center">
       <a class="text-3xl font-bold font-heading" href="/#/">
-        <img class="h-10" src="/images/makito.png" alt="logo">
+        <img class="h-10" src="/images/makito_logo/makito_trans_hori_black.png" alt="logo">
       </a>
       <!-- Nav Links -->
       <ul class="hidden md:flex mx-auto font-semibold font-heading space-x-12">
