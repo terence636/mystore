@@ -26,12 +26,12 @@ const ShippingScreen = {
     ${CheckoutSteps.render({ step1: true, step2: true })}
     <div class="form-container">
       <form id="shipping-form">
-        <ul class="form-items">
+        <ul class="form-items shadow-2xl">
           <li>
             <h1>Shipping</h1>
           </li>
           <li>
-            <label for="address">Adress</label>
+            <label for="address">Address</label>
             <input type="text" name="address" id="address" value="${address}" />
           </li>
           <li>

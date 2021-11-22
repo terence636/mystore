@@ -21,7 +21,7 @@ export const getProductSpring = async (id) => {
   }
 };
 
-export const getProductsSpring = async ({ searchKeyword = "" }) => {
+export const getProductsSpring = async (searchKeyword = "") => {
   try {
     let queryString = "?search";
     if (searchKeyword) 
@@ -33,6 +33,48 @@ export const getProductsSpring = async ({ searchKeyword = "" }) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      const msg = JSON.parse(await response.text());
+      throw new Error(`${response.status} ${msg.message}`);
+    }
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+    return { error: err.message };
+  }
+};
+
+export const createProductSpring = async () => {
+  try {
+    const { token } = getUserInfo();
+    const response = await fetch(`${apiUrlSpring}/api/products`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (!response.ok) {
+      const msg = JSON.parse(await response.text());
+      throw new Error(`${response.status} ${msg.message}`);
+    }
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+    return { error: err.message };
+  }
+};
+
+export const deleteProductSpring = async (productId) => {
+  try {
+    const { token } = getUserInfo();
+    const response = await fetch(`${apiUrlSpring}/api/products/${productId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
     });
     if (!response.ok) {
@@ -187,6 +229,7 @@ export const getOrderSpring = async (id) => {
 export const getMyOrdersSpring = async () => {
   try {
     const { token, _id } = getUserInfo();
+    console.log(_id)
     const response = await fetch(`${apiUrlSpring}/api/orders/mine/${_id}`, {
       headers: {
         "Content-Type": "application/json",
@@ -194,7 +237,7 @@ export const getMyOrdersSpring = async () => {
       },
     });
     if (!response.ok) {
-      const msg = JSON.parse(await response.text());
+      const msg = JSON.parse(await response.text()); 
       throw new Error(`${response.status} ${msg.message}`);
     }
     return await response.json();

@@ -1,23 +1,23 @@
 // import Rating from "../components/Rating.js";
-import { getProductsSpring } from "../api_spring.js";
-import { parseRequestUrl } from "../utils.js";
+// import { getProductsSpring } from "../api_spring.js";
+// import { parseRequestUrl } from "../utils.js";
 
 // import data from '../data.js'
 
 const HomeCategoryScreen = {
     after_render: () => {},
 
-    render: async () => {
-        const { value } = parseRequestUrl();
-        const products = await getProductsSpring({ searchKeyword: value });
-        if (products.error) {
-            return `<div class="error">${products.error}</div>`;
-        }
+    render: async () => 
+        // const { value } = parseRequestUrl();
+        // const products = await getProductsSpring({ searchKeyword: value });
+        // if (products.error) {
+        //     return `<div class="error">${products.error}</div>`;
+        // }
 
 
     // const { productsTest } = data;
-    console.log(products);
-    return `
+    // console.log(products);
+    `
 
 
     
@@ -182,14 +182,9 @@ const HomeCategoryScreen = {
                 </div>
             </div>
         </div>
+    </div>
+    </section>    
+    </ul>`,
+}
 
-
-
-
-     </div>
-     </section>
-        
-    </ul>`;
-  },
-};
 export default HomeCategoryScreen;

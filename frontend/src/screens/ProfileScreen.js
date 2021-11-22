@@ -133,13 +133,10 @@ const ProfileScreen = {
             <!--td>${order.paidAt || "No"}</td-->
             <!--td>${order.deliveryAt || "No"}</td-->
             <td><a href="/#/order/${order._id}">DETAILS</a> 
-                <span id="delete-order-${
-                  order._id
-                }" class="px-6 cursor-pointer hover:text-yellow-500">DELETE</span></td>
+                <span id="delete-order-${order._id}" class="px-6 cursor-pointer hover:text-yellow-500">DELETE</span>
+            </td>
           </tr>
-          `
-                    )
-                    .join("\n")
+          `).join("\n")
             }
           </tbody>
         </table>

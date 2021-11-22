@@ -32,7 +32,7 @@ const SigninScreen = {
     return `
     <div class="form-container">
       <form id="signin-form">
-        <ul class="form-items">
+        <ul class="form-items shadow-2xl">
           <li>
             <h1>Sign-In</h1>
           </li>
@@ -50,7 +50,7 @@ const SigninScreen = {
           <li>
             <div>
               New User?
-              <a href="/#/register">Create your account </a>
+              <a class="font-bold" href="/#/register">Create your account </a>
             </div>
           </li>
         </ul>

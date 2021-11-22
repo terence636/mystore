@@ -127,10 +127,10 @@ const PlaceOrderScreen = {
         <div class="order-action">
           <ul>
             <li><h2 class="font-bold">Order Summary</h2></li>
-            <li><div>Items</div><div>$${itemsPrice}</div></li>
-            <li><div>Shipping</div><div>$${shippingPrice}</div></li>
-            <li><div>Tax</div><div>$${taxPrice}</div></li>
-            <li class="total"><div>Order Total</div><div>$${totalPrice}</div></li> 
+            <li><div>Items</div><div>$${itemsPrice?.toFixed(2)}</div></li>
+            <li><div>Shipping</div><div>$${shippingPrice?.toFixed(2)}</div></li>
+            <li><div>Tax</div><div>$${taxPrice?.toFixed(2)}</div></li>
+            <li class="total"><div>Order Total</div><div>$${totalPrice?.toFixed(2)}</div></li> 
             <li>
             <button id="placeorder-button" class="primary fw">
               Place Order

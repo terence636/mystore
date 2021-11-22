@@ -85,7 +85,7 @@ const StoreScreen = {
       // if (products.error) {
       //     return `<div class="error">${products.error}</div>`;
       // }
-    const productsTshirt = await getProductsSpring({searchKeyword: "tshirt",});
+    const productsTshirt = await getProductsSpring("tshirt",);
     if (productsTshirt.error) { return `<div class="error">${productsTshirt.error}</div>`;}
     console.log({ productsTshirt });
     if(this.sortTshirt === "ascPrice")
@@ -98,7 +98,7 @@ const StoreScreen = {
         productsTshirt.sort((a, b) => b.rating - a.rating);    
 
 
-    const productsJean = await getProductsSpring({ searchKeyword: "jean",});
+    const productsJean = await getProductsSpring("jean");
     if (productsJean.error) { return `<div class="error">${productsJean.error}</div>`;}
     console.log({ productsJean });
     if(this.sortJean === "ascPrice")
@@ -110,7 +110,7 @@ const StoreScreen = {
     if (this.sortJean === "desRating")
         productsJean.sort((a, b) => b.rating - a.rating);  
 
-    const productsJacket = await getProductsSpring({searchKeyword: "jacket",});
+    const productsJacket = await getProductsSpring("jacket");
     if (productsJacket.error) {return `<div class="error">${productsJacket.error}</div>`;}
     console.log({ productsJacket });
     if(this.sortJacket === "ascPrice")
@@ -202,7 +202,7 @@ const StoreScreen = {
                     <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                 </svg>
             </span>
-            <div class="dropdown-content absolute z-10 bg-blue-100 shadow-2xl hidden">
+            <div class="dropdown-content absolute z-10 ight-8 lg:right-40 bg-blue-100 shadow-2xl hidden">
                 <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="tshirt-asc-rating">Asc Rating</span>
                 <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="tshirt-des-rating">Desc Rating</span>
                 <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="tshirt-asc-price">Asc Price</span>
@@ -259,7 +259,7 @@ const StoreScreen = {
                     <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                 </svg>
             </span>
-            <div class="dropdown-content absolute z-10 bg-blue-100 shadow-2xl hidden">
+            <div class="dropdown-content absolute right-8 lg:right-40 z-10 bg-blue-100 shadow-2xl hidden">
                 <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-asc-rating">Asc Rating</span>
                 <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-des-rating">Desc Rating</span>
                 <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-asc-price">Asc Price</span>
@@ -307,7 +307,7 @@ const StoreScreen = {
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
         <span class="uppercase tracking-wide font-bold text-gray-800 text-4xl ">
-    Jacket
+    Jackets
         </span>
 
          <div class="dropdown">
@@ -316,7 +316,7 @@ const StoreScreen = {
                     <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                 </svg>
             </span>
-            <div class="dropdown-content absolute z-10 bg-blue-100 shadow-2xl hidden">
+            <div class="dropdown-content absolute z-10 ight-8 lg:right-40 bg-blue-100 shadow-2xl hidden">
                 <span class="block text-left px-4 py-4 hover:bg-blue-200 hover:cursor-pointer" id="jacket-asc-rating">Asc Rating</span>
                 <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jacket-des-rating">Desc Rating</span>
                 <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jacket-asc-price">Asc Price</span>

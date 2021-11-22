@@ -23,7 +23,7 @@ const PaymentScreen = {
     ${CheckoutSteps.render({ step1: true, step2: true, step3: true })}
     <div class="form-container">
       <form id="payment-form">
-        <ul class="form-items">
+        <ul class="form-items shadow-2xl">
           <li>
             <h1>Payment</h1>
           </li>

@@ -14,10 +14,8 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen.js";
 import OrderScreen from "./screens/OrderScreen.js";
 import AboutUs from "./screens/AboutUs.js";
 import CategoryJacketScreen from "./screens/CategoryJacketScreen.js";
-
-// import DashboardScreen from "./screens/DashboardScreen.js";
-
-// import ProductListScreen from "./srceens/ProductListScreen";
+import DashboardScreen from "./screens/DashboardScreen.js";
+import ProductListScreen from "./screens/ProductListScreen.js";
 // import ProductEditScreen from "./srceens/ProductEditScreen";
 // import OrderListScreen from "./srceens/OrderListScreen";
 // import Aside from "./components/Aside";
@@ -37,9 +35,9 @@ const routes = {
   "/shipping": ShippingScreen,
   "/payment": PaymentScreen,
   "/placeorder": PlaceOrderScreen,
-  // "/dashboard": DashboardScreen,
+  "/dashboard": DashboardScreen,
   "/aboutus": AboutUs,
-  // "/productlist": ProductListScreen,
+  "/productlist": ProductListScreen,
   // "/orderlist": OrderListScreen,
 };
 

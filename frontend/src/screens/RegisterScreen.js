@@ -52,7 +52,7 @@ const RegisterScreen = {
     return `
     <div class="form-container">
       <form id="register-form">
-        <ul class="form-items">
+        <ul class="form-items shadow-2xl">
           <li>
             <h1>Create Account</h1>
           </li>
@@ -78,7 +78,7 @@ const RegisterScreen = {
           <li>
             <div>
               Already have an account?
-              <a href="/#/signin">Sign-In </a>
+              <a class="font-bold" href="/#/signin">Sign-In </a>
             </div>
           </li>
         </ul>

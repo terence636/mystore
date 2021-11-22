@@ -169,9 +169,7 @@ const OrderScreen = {
             <li><div>Items</div><div>$${itemsPrice?.toFixed(2)}</div></li>
             <li><div>Shipping</div><div>$${shippingPrice?.toFixed(2)}</div></li>
             <li><div>Tax</div><div>$${taxPrice?.toFixed(2)}</div></li>
-            <li class="total"><div>Order Total</div><div>$${totalPrice?.toFixed(
-              2
-            )}</div></li>                  
+            <li class="total"><div>Order Total</div><div>$${totalPrice?.toFixed(2)}</div></li>                  
             <li><button class="primary fw" id="paypal-button">PAY</button></li>
             <!--li><div class="primary fw" id="paypal-button"></div></li-->
             <li>
