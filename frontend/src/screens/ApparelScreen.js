@@ -112,7 +112,7 @@ const ApparelScreen = {
 
     
         <a class="uppercase font-bold text-gray-800 text-4xl" href="/#/storetshirts">
-    T-Shirts
+    Search Filter
         </a>
 
         <div class="dropdown">
