@@ -1,6 +1,7 @@
 package com.gensg.mystore.controllers;
 
 import com.gensg.mystore.models.Products;
+import com.gensg.mystore.models.Users;
 import com.gensg.mystore.service.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,19 +11,41 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.ServletException;
 import java.util.ArrayList;
 
+class ProductResponseBody {
+    private String message;
+    private Products product;
+
+    public ProductResponseBody() {}
+    public ProductResponseBody(String message, Products product) {
+        this.message = message;
+        this.product = product;
+    }
+    public ProductResponseBody(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public Products getProduct() {
+        return product;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setProduct(Products product) {
+        this.product = product;
+    }
+}
 @RestController
 @CrossOrigin( "*" )
 public class ProductController {
 
     @Autowired
     private ProductsService productsService;
-
-//    @GetMapping("/api/products/category")
-//    @ResponseBody
-//    public ResponseEntity<?> getProductsByCategory(@RequestParam String search) {
-//        ArrayList<Products> products = productsService.getProductsByCategory(search);
-//        return new ResponseEntity(products, HttpStatus.OK);
-//    }
 
     @GetMapping("/api/products")
     @ResponseBody
@@ -44,6 +67,42 @@ public class ProductController {
     }
 
     @PostMapping("/api/products")
+    public ResponseEntity<?> createOne(@RequestBody Products product) throws ServletException {
+
+        // Save new product to product table
+        Products savedProduct = productsService.create(product);
+
+        return new ResponseEntity(new ProductResponseBody("New Product Created Successfully",savedProduct),HttpStatus.OK);
+    }
+
+    @PutMapping("/api/products/{id}")
+    public ResponseEntity<?> updateOne(@PathVariable Long id, @RequestBody Products product) throws ServletException {
+        Products productToUpdate = productsService.getOne(id);
+        if ( productToUpdate == null ) {
+            return new ResponseEntity(new ProductResponseBody("Product Not Found"), HttpStatus.NOT_FOUND);
+        }
+
+        productToUpdate.setName(product.getName());
+        productToUpdate.setDescription(product.getDescription());
+        productToUpdate.setBrand(product.getBrand());
+        productToUpdate.setCategory(product.getCategory());
+        productToUpdate.setCountInStock(product.getCountInStock());
+        productToUpdate.setPrice(product.getPrice());
+//        productToUpdate.setRating(product.getRating());
+//        productToUpdate.setNumReviews(product.getNumReviews());
+        productToUpdate.setImage(product.getImage());
+        Products updatedProduct = productsService.create(productToUpdate);
+
+        return new ResponseEntity( new ProductResponseBody("Product " + id + " Updated Successfully",updatedProduct),HttpStatus.OK);
+    }
+
+    @DeleteMapping("/api/products/{id}")
+    public ResponseEntity<?> deleteOne(@PathVariable Long id) {
+        productsService.delete(id);
+        return new ResponseEntity(new ProductResponseBody("Product " + id + " Deleted"),HttpStatus.CREATED);
+    }
+
+    @PostMapping("/seed/products")
     public String seed() throws ServletException {
 
         ArrayList<Products> products = new ArrayList<>();

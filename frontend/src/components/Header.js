@@ -20,7 +20,7 @@ const Header = {
         <li><a class="hover:text-orange-200" href="/#/apparel">All Apparel</a></li>
         ${
           isAdmin
-            ? `<li><a class="hover:text-orange-200" href="/#/dashboard">Dashboard</a></li>`
+            ? `<li><a class="hover:text-orange-200" href="/#/productlist">Dashboard</a></li>`
             : ""
         }  
         </li>

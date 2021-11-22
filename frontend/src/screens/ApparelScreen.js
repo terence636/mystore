@@ -68,7 +68,7 @@ const ApparelScreen = {
                     <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                 </svg>
             </span>
-            <div class="dropdown-content absolute z-10 right-8 bg-blue-100 shadow-2xl hidden">
+            <div class="dropdown-content absolute z-10 right-8 lg:right-40 bg-blue-100 shadow-2xl hidden">
                 <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="asc-rating">Asc Rating</span>
                 <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="des-rating">Desc Rating</span>
                 <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="asc-price">Asc Price</span>

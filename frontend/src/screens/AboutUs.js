@@ -9,11 +9,9 @@ const AboutUs = {
           free delivery for minimum purchases of $20. We also offer membership with 15% discount. We have been selling 
           fashion clothes online for the past 20 years and have receive plenty of customers feedback for our product and services.
           <br>
-          <div class = "flex flex-wrap justify-between" >
-          
-         
-         <img src="https://img.shein.com/images2/2018/11/29/15434606512441018221.jpg" height="70%"  width= "40%"><br>
-         <img src="https://img.shein.com/images2/2018/11/29/15434606851110958515.jpg" height="70%"  width= "40%"><br>
+          <div class = "flex flex-wrap justify-around" >
+         <img src="https://img.shein.com/images2/2018/11/29/15434606512441018221.jpg" height="70%"  width= "40%">
+         <img src="https://img.shein.com/images2/2018/11/29/15434606851110958515.jpg" height="70%"  width= "40%">
          </div>
      </div>         
       
@@ -32,9 +30,9 @@ const AboutUs = {
           multigenerational appeal. MAKITO is committed to fair trade practices from source to shelf, and still 
           thrilled each day by the adventure that lies ahead!</p>
           
-          <div class = "flex flex-wrap justify-between">
-          <img src="https://img.shein.com/images2/2018/11/29/15434607113621832211.jpg" height="70%"  width= "40%"><br>
-          <img src="https://img.shein.com/images2/2018/11/29/15434607782056434179.jpg" height="70%"  width= "40%"><br>
+          <div class = "flex flex-wrap justify-around">
+          <img src="https://img.shein.com/images2/2018/11/29/15434607113621832211.jpg" height="70%"  width= "40%">
+          <img src="https://img.shein.com/images2/2018/11/29/15434607782056434179.jpg" height="70%"  width= "40%">
           </div>
           </div>
 
@@ -45,7 +43,7 @@ const AboutUs = {
                   <div class="px-3 md:px-0">
                       <h3 class="font-bold text-gray-900">Contact us</h3>
                       <p class="pt-4">
-                          GenSGStore Pte. Ltd.<br>
+                          Makito Pte. Ltd.<br>
                           46, Marina Bay Sands<br>
                           #17-356<br>
                           Singapore 321046<br>
@@ -61,7 +59,7 @@ const AboutUs = {
               <div class="min-w-sm pt-8 sm:pt-0 ">
                   <div class="px-3 md:px-0">
                       <h3 class="font-bold text-gray-900">Visit us @ FB</h3>
-                      <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">GenSGStore@facebook.com</a>
+                      <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Makito@facebook.com</a>
                   </div>
               </div>
           </div>

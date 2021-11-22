@@ -71,12 +71,12 @@ const CategoryJeanScreen = {
         <div class="carousel-item absolute opacity-0" style="height:50vh;">
             <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('https://images.unsplash.com/photo-1422190441165-ec2956dc9ecc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80');">
 
-                <div class="container mx-auto">
+                <!--div class="container mx-auto">
                     <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
                         <p class="text-black text-2xl my-4">Stripy Zig Zag Jigsaw Pillow and Duvet Set</p>
                         <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" href="#">view product</a>
                     </div>
-                </div>
+                </div-->
 
             </div>
         </div>
@@ -88,10 +88,10 @@ const CategoryJeanScreen = {
     </div>
 
 
-    <nav id="Category" class="w-full z-30 top-0 px-6 mt-20 border-t border-gray-400">
+    <nav id="Category" class="w-full top-0 px-6 mt-20 border-t border-gray-400">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
-        <span class="uppercase tracking-wide font-bold text-gray-800 text-4xl ">
+        <span class="uppercase font-bold text-gray-800 text-4xl ">
         Jeans With Style
         </span>
 
@@ -102,7 +102,7 @@ const CategoryJeanScreen = {
                     <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                 </svg>
             </span>
-            <div class="dropdown-content absolute z-10 right-8 bg-blue-100 shadow-2xl hidden">
+            <div class="dropdown-content absolute z-10 right-8 lg:right-40 bg-blue-100 shadow-2xl hidden">
                 <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-asc-rating">Asc Rating</span>
                 <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-des-rating">Desc Rating</span>
                 <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-asc-price">Asc Price</span>

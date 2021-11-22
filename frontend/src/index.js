@@ -15,15 +15,12 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen.js";
 import OrderScreen from "./screens/OrderScreen.js";
 import AboutUs from "./screens/AboutUs.js";
 import CategoryJacketScreen from "./screens/CategoryJacketScreen.js";
-import DashboardScreen from "./screens/DashboardScreen.js";
+// import DashboardScreen from "./screens/DashboardScreen.js";
 import ProductListScreen from "./screens/ProductListScreen.js";
 import CategoryTshirtScreen from "./screens/CategoryTshirtScreen.js";
 import CategoryJeanScreen from "./screens/CategoryJeanScreen.js";
-
-// import DashboardScreen from "./screens/DashboardScreen.js";
-
-// import ProductListScreen from "./srceens/ProductListScreen";
-// import ProductEditScreen from "./srceens/ProductEditScreen";
+import ProductEditScreen from "./screens/ProductEditScreen.js";
+import ProductCreateScreen from "./screens/ProductCreateScreen.js";
 // import OrderListScreen from "./srceens/OrderListScreen";
 // import Aside from "./components/Aside";
 
@@ -35,6 +32,9 @@ const routes = {
   "/storetshirts": CategoryTshirtScreen,
   "/storejeans": CategoryJeanScreen,
   "/product/:id": ProductScreen,
+  "/product/:id/edit": ProductEditScreen,
+  "/product/:id/create": ProductCreateScreen,
+  "/productlist": ProductListScreen,
   "/cart/:id": CartScreen,
   "/order/:id": OrderScreen,
   "/cart": CartScreen,
@@ -44,9 +44,8 @@ const routes = {
   "/shipping": ShippingScreen,
   "/payment": PaymentScreen,
   "/placeorder": PlaceOrderScreen,
-  "/dashboard": DashboardScreen,
+  // "/dashboard": DashboardScreen,
   "/aboutus": AboutUs,
-  "/productlist": ProductListScreen,
   // "/orderlist": OrderListScreen,
 };
 

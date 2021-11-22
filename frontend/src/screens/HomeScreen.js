@@ -122,7 +122,7 @@ const HomeCategoryScreen = {
                             <div class="px-3 md:px-0">
                                 <h3 class="font-bold text-gray-900">Contact us</h3>
                                 <p class="pt-4">
-                                    GenSGStore Pte. Ltd.<br>
+                                    Makito Pte. Ltd.<br>
                                     46, Marina Bay Sands<br>
                                     #17-356<br>
                                     Singapore 321046<br>
@@ -138,7 +138,7 @@ const HomeCategoryScreen = {
                         <div class="min-w-sm pt-8 sm:pt-0 ">
                             <div class="px-3 md:px-0">
                                 <h3 class="font-bold text-gray-900">Visit us @ FB</h3>
-                                <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">GenSGStore@facebook.com</a>
+                                <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Makito@facebook.com</a>
                             </div>
                         </div>
                     </div>

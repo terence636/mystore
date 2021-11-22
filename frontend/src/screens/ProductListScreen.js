@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-alert */
 import DashboardMenu from '../components/DashboardMenu.js';
-import { getProductsSpring, createProductSpring, deleteProductSpring } from '../api_spring.js';
+import { getProductsSpring, deleteProductSpring } from '../api_spring.js';
 import { showLoading, hideLoading, reRender, showMessage } from '../utils.js';
 
 const ProductListScreen = {
@@ -9,8 +9,8 @@ const ProductListScreen = {
     document
       .getElementById('create-product-button')
       .addEventListener('click', async () => {
-        const data = await createProductSpring();
-        document.location.hash = `/product/${data.product.id}/edit`;
+        // const data = await createProductSpring();
+        document.location.hash = `/product/999/create`;
       });
     const editButtons = document.getElementsByClassName('edit-button');
     Array.from(editButtons).forEach((editButton) => {
@@ -27,6 +27,8 @@ const ProductListScreen = {
           if (data.error) {
             showMessage(data.error);
           } else {
+            showMessage(data.message)
+            // console.log({data})
             reRender(ProductListScreen);
           }
           hideLoading();
@@ -36,12 +38,13 @@ const ProductListScreen = {
   },
   render: async () => {
     const products = await getProductsSpring();
+    // console.log(products)
     return `
     <div class="dashboard">
     ${DashboardMenu.render({ selected: 'products' })}
     <div class="dashboard-content">
       <h1>Products</h1>
-      <button id="create-product-button" class="primary">
+      <button id="create-product-button" class="primary px-4 mb-8">
         Create Product
       </button>
       <div class="product-list">
@@ -63,7 +66,7 @@ const ProductListScreen = {
             <tr>
               <td>${product.id}</td>
               <td>${product.name}</td>
-              <td>${product.price}</td>
+              <td>${product.price.toFixed(2)}</td>
               <td>${product.category}</td>
               <td>${product.brand}</td>
               <td>

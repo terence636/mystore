@@ -11,7 +11,7 @@ export const getProductSpring = async (id) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
     // return data;
@@ -37,7 +37,7 @@ export const getProductsSpring = async (searchKeyword = "") => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -46,7 +46,7 @@ export const getProductsSpring = async (searchKeyword = "") => {
   }
 };
 
-export const createProductSpring = async () => {
+export const createProductSpring = async (product) => {
   try {
     const { token } = getUserInfo();
     const response = await fetch(`${apiUrlSpring}/api/products`, {
@@ -55,10 +55,33 @@ export const createProductSpring = async () => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+      body: JSON.stringify(product),
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
+    }
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+    return { error: err.message };
+  }
+};
+
+export const updateProductSpring = async (product) => {
+  try {
+    const { token } = getUserInfo();
+    const response = await fetch(`${apiUrlSpring}/api/products/${product.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(product),
+    });
+    if (!response.ok) {
+      const msg = JSON.parse(await response.text());
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -79,7 +102,7 @@ export const deleteProductSpring = async (productId) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {

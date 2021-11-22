@@ -41,10 +41,10 @@ const PaymentScreen = {
           <div>
             <input type="radio"
             name="payment-method"
-            id="cash"
-            value="Cash"
+            id="paynow"
+            value="PayNow"
             />
-            <label for="cash">Cash</label>
+            <label for="cash">PayNow</label>
           </div> 
         </li>
           <li>

@@ -210,6 +210,8 @@ public class OrderController {
         }
         ArrayList<Orders_Products> savedOrdersProducts = ordersProductsService.saveAll(newOrdersProducts);
 
+        // Update the request body with order id and created at to send back
+        // to front end
         order.set_id(savedOrder.getId());
         order.setCreatedAt(savedOrder.getCreated_at());
 
