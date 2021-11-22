@@ -12,7 +12,7 @@ const Header = {
         <img class="h-10" src="/images/makito.png" alt="logo">
       </a>
       <!-- Nav Links -->
-      <ul class="hidden sm:flex mx-auto font-semibold font-heading space-x-12">
+      <ul class="hidden md:flex mx-auto font-semibold font-heading space-x-12">
         <li><a class="hover:text-orange-200" href="/#/">Home</a></li>
         <li><a class="hover:text-orange-200" href="/#/storejeans">Jeans</a></li>
         <li><a class="hover:text-orange-200" href="/#/storetshirts">T-shirts</a></li>

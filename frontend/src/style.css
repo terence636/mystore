@@ -794,3 +794,9 @@ td {
   top: 45%;
   width: 75%;
 }
+
+@media only screen and (min-width: 800px) {
+  makito {
+    display: flex
+  }
+}
