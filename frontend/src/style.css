@@ -795,7 +795,7 @@ td {
   width: 75%;
 }
 
-/* About us pictures */
+/* About us pictures
 .aboutus {
   height: 70%;  
   width: 40%;
@@ -804,7 +804,7 @@ td {
   background-position: center center;
   background-size: cover;
   opacity: 1; */
-  position: right;
+  /* position: right; */
   /* top: 1205px;
   left: 111px;
   border-top-left-radius: 90px;
@@ -812,5 +812,5 @@ td {
   border-bottom-left-radius: 90px;
   border-bottom-right-radius: 90px;
   overflow: hidden; */
-  align-items: center;
-}
+  /* align-items: center;
+/* } */ 
