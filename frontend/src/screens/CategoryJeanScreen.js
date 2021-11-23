@@ -62,21 +62,14 @@ const CategoryJeanScreen = {
 
 <!--homescreen products sections-->
 <section class="bg-white py-8">
-    <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
+     <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
 
     <div class="carousel relative container mx-auto" style="max-width:1600px;">
     <div class="carousel-inner relative overflow-hidden w-full">
         <!--Slide 1-->
         <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
         <div class="carousel-item absolute opacity-0" style="height:50vh;">
-            <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('https://images.unsplash.com/photo-1422190441165-ec2956dc9ecc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80');">
-
-                <!--div class="container mx-auto">
-                    <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                        <p class="text-black text-2xl my-4">Stripy Zig Zag Jigsaw Pillow and Duvet Set</p>
-                        <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" href="#">view product</a>
-                    </div>
-                </div-->
+            <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('./images/Banners/8106ecd3ce19efa75a0048cdf83fc1b7.jpeg');">
 
             </div>
         </div>

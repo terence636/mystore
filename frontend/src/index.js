@@ -15,14 +15,14 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen.js";
 import OrderScreen from "./screens/OrderScreen.js";
 import AboutUs from "./screens/AboutUs.js";
 import CategoryJacketScreen from "./screens/CategoryJacketScreen.js";
-// import DashboardScreen from "./screens/DashboardScreen.js";
 import ProductListScreen from "./screens/ProductListScreen.js";
 import CategoryTshirtScreen from "./screens/CategoryTshirtScreen.js";
 import CategoryJeanScreen from "./screens/CategoryJeanScreen.js";
 import ProductEditScreen from "./screens/ProductEditScreen.js";
 import ProductCreateScreen from "./screens/ProductCreateScreen.js";
-// import OrderListScreen from "./srceens/OrderListScreen";
+import OrderListScreen from "./screens/OrderListScreen.js";
 // import Aside from "./components/Aside";
+// import DashboardScreen from "./screens/DashboardScreen.js";
 
 
 const routes = {
@@ -46,7 +46,7 @@ const routes = {
   "/placeorder": PlaceOrderScreen,
   // "/dashboard": DashboardScreen,
   "/aboutus": AboutUs,
-  // "/orderlist": OrderListScreen,
+  "/orderlist": OrderListScreen,
 };
 
 const router = async () => {
