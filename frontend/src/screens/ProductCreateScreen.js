@@ -83,7 +83,7 @@ const ProductCreateScreen = {
             </li>
             <li>
               <label for="brand">Brand</label>
-              <input type="text" name="brand" value="Uniglo" id="brand" />
+              <input type="text" name="brand" value="Sample Brand" id="brand" />
             </li>
             <li>
               <label for="countInStock">Count In Stock</label>
@@ -91,7 +91,7 @@ const ProductCreateScreen = {
             </li>
             <li>
               <label for="category">Category</label>
-              <input type="text" name="category" value="Jeans" id="category" />
+              <input type="text" name="category" value="Jean" id="category" />
             </li>
             <li>
               <label for="description">Description</label>

@@ -51,7 +51,6 @@ public class ProductController {
     @ResponseBody
     public ResponseEntity<?> getProducts(@RequestParam String search) throws ServletException {
         ArrayList<Products> products = new ArrayList<>();
-        System.out.println(search);
         if(search.equals("all")) {
             products = productsService.getAll();
         } else {

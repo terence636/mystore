@@ -1,6 +1,7 @@
 import { apiUrlSpring } from "./config.js";
 import { getUserInfo } from "./localStorage.js"
 
+// PRODUCT API
 export const getProductSpring = async (id) => {
   try {
     const response = await fetch(`${apiUrlSpring}/api/products/${id}`, {
@@ -111,7 +112,28 @@ export const deleteProductSpring = async (productId) => {
   }
 };
 
+// USER API
 // { email, password })
+export const getUsersSpring = async () => {
+  try {
+    const response = await fetch(`${apiUrlSpring}/api/users/`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      const msg = JSON.parse(await response.text());
+      throw new Error(`${msg.message}`);
+    }
+    return await response.json();
+    // return data;
+  } catch (err) {
+    console.log(err);
+    return { error: err.message };
+  }
+};
+
 export const signinSpring = async (params) => {
   try {
     const response = await fetch(`${apiUrlSpring}/users/auth`, {
@@ -185,6 +207,7 @@ export const updateSpring = async ({ name, email, password, isAdmin }) => {
   }
 };
 
+// ORDER API
 export const createOrderSpring = async (order) => {
   try {
     const { token } = getUserInfo();

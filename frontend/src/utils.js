@@ -51,3 +51,18 @@ export const redirectUser = () => {
   }
   
 };
+
+export const printDate = (t) => {
+  // 2021-11-16T04:57:17.118+00:00
+  const date = t.slice(8, 10);
+  const month = t.slice(5, 7);
+  const year = t.slice(0, 4);
+  return `${date}/${month}/${year}`;
+};
+
+export const printTime = (t) => {
+  const temp = parseInt(t.slice(11, 14), 10) + 8;
+  const hour = `${temp >= 24 ? temp - 24 : temp}`;
+  const minute = t.slice(14, 16);
+  return `${hour}:${minute}`;
+};

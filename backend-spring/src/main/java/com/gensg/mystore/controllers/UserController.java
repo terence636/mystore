@@ -1,5 +1,6 @@
 package com.gensg.mystore.controllers;
 
+import com.gensg.mystore.models.Products;
 import com.gensg.mystore.models.Users;
 import com.gensg.mystore.service.UsersService;
 import io.jsonwebtoken.Jwts;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -61,30 +63,6 @@ class UserResponseBody {
     public String getMessage() { return message; }
 
 }
-
-//class UserRequestBody
-//{
-//
-//    private final String email;
-//
-//    private final String password;
-//
-//    public UserRequestBody(String email, String password )
-//    {
-//        this.email = email;
-//        this.password = password;
-//    }
-//
-//    public String getEmail()
-//    {
-//        return email;
-//    }
-//
-//    public String getPassword()
-//    {
-//        return password;
-//    }
-//}
 
 @RestController
 @CrossOrigin( "*" )
@@ -164,6 +142,12 @@ public class UserController
             return new ResponseEntity(new UserResponseBody("Wrong Password"), HttpStatus.FORBIDDEN);
         }
 
+    }
+
+    @GetMapping( "api/users" )
+    public ResponseEntity<?> getUsers() throws ServletException {
+        ArrayList<Users> users = usersService.getAll();
+        return new ResponseEntity(users, HttpStatus.OK);
     }
 
 
