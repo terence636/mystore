@@ -169,7 +169,6 @@ export const registerSpring = async ({ name, email, password, isAdmin }) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      // throw new Error(`${response.status} ${msg.message}`);
       throw new Error(`${msg.message}`);
     }
     return await response.json();
@@ -221,7 +220,7 @@ export const createOrderSpring = async (order) => {
     // console.log(response)
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -242,7 +241,7 @@ export const getOrdersSpring = async () => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -262,7 +261,7 @@ export const getOrderSpring = async (id) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -283,7 +282,7 @@ export const getMyOrdersSpring = async () => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text()); 
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -335,7 +334,7 @@ export const getPaypalClientIdSpring = async () => {
   // return response.data.clientId;
 };
 
-export const payOrderSpring = async (orderId, paymentResult) => {
+export const payOrderSpring = async (orderId, paymentResult=true) => {
   try {
     const { token } = getUserInfo();
     const response = await fetch(`/api/orders/${orderId}/pay`, {
@@ -348,7 +347,7 @@ export const payOrderSpring = async (orderId, paymentResult) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -356,6 +355,7 @@ export const payOrderSpring = async (orderId, paymentResult) => {
     return { error: err.message };
   }
 };
+
 export const deliverOrderSpring = async (orderId) => {
   try {
     const { token } = getUserInfo();
@@ -368,7 +368,7 @@ export const deliverOrderSpring = async (orderId) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -388,7 +388,7 @@ export const getSummarySpring = async () => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
