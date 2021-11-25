@@ -53,6 +53,7 @@ const ApparelScreen = {
 
 <!--homescreen products sections-->
 <section>
+<div class="carousel relative container mx-auto" style="max-width:1600px;">
     <nav id="Category" class="w-full px-6 mt-20 border-t border-gray-400">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
@@ -114,6 +115,7 @@ const ApparelScreen = {
 
         
     </div>
+</div>
 </section>
     `;
     },
