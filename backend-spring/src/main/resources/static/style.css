@@ -19,7 +19,7 @@ a {
 }
 
 a:hover {
-  color: #f08040;
+  color: #f040a7;
 }
 
 button {
@@ -45,7 +45,7 @@ button:hover {
   border: 0.1rem #404040 solid;
 }
 button.primary {
-  background-color: #f0c040;
+  background-color: #b2f040;
 }
 .overlay {
   display: none;

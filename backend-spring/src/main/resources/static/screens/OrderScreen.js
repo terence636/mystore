@@ -95,9 +95,9 @@ const OrderScreen = {
     }
 
     const payButton = document.getElementById('pay-button');
-    payButton.addEventListener(async ()=>{
+    payButton.addEventListener('click',async ()=>{
       showLoading();
-      await payOrderSpring(request.id);
+      // await payOrderSpring(request.id);
       hideLoading();
       showMessage('Thanks for your payment. Order confirmed')
       reRender(OrderScreen);

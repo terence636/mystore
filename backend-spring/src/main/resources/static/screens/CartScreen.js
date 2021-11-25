@@ -110,7 +110,7 @@ const CartScreen = {
                     )
                     .join("\n")}  
                   </select>
-                  <button type="button" class="delete-button" id="${
+                  <button type="button" class="delete-button p-1" id="${
                     item.productId
                   }">
                     Delete
