@@ -90,10 +90,20 @@ const OrderScreen = {
         await deliverOrderSpring(request.id);
         hideLoading();
         showMessage('Order Delivered.');
-      reRender(OrderScreen);
+        reRender(OrderScreen);
       });
     }
+
+    const payButton = document.getElementById('pay-button');
+    payButton.addEventListener(async ()=>{
+      showLoading();
+      await payOrderSpring(request.id);
+      hideLoading();
+      showMessage('Thanks for your payment. Order confirmed')
+      reRender(OrderScreen);
+    })
   },
+
   render: async () => {
     const { isAdmin } = getUserInfo();
     const request = parseRequestUrl();
@@ -170,7 +180,7 @@ const OrderScreen = {
             <li><div>Shipping</div><div>$${shippingPrice?.toFixed(2)}</div></li>
             <li><div>Tax</div><div>$${taxPrice?.toFixed(2)}</div></li>
             <li class="total"><div>Order Total</div><div>$${totalPrice?.toFixed(2)}</div></li>                  
-            <li><button class="primary fw" id="paypal-button">PAY</button></li>
+            <li><button class="primary fw" id="pay-button">PAY</button></li>
             <!--li><div class="primary fw" id="paypal-button"></div></li-->
             <li>
               ${
