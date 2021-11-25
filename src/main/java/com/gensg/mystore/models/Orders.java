@@ -21,14 +21,14 @@ public class Orders {
     private Float totalPrice;
     private String shippingAddress;
     private String paymentMethod;
-//    private Boolean isPaid;
-//    private Boolean isDelivered;
+   private Boolean isPaid;
+   private Boolean isDelivered;
     @CreationTimestamp
     private Date created_at;
 
 
     public Orders() {}
-    public Orders(Long userId, Float itemsPrice, Float tax, Float shippingPrice, Float totalPrice, String shippingAddress, String paymentMethod) {
+    public Orders(Long userId, Float itemsPrice, Float tax, Float shippingPrice, Float totalPrice, String shippingAddress, String paymentMethod, Boolean isPaid, Boolean isDelivered) {
         this.userId = userId;
         this.itemsPrice = itemsPrice;
         this.tax = tax;
@@ -36,7 +36,8 @@ public class Orders {
         this.totalPrice = totalPrice;
         this.shippingAddress = shippingAddress;
         this.paymentMethod = paymentMethod;
-//        this.created_at = createdAt;
+        this.isPaid = isPaid;
+        this.isDelivered = isDelivered;
     }
 
 
@@ -69,6 +70,22 @@ public class Orders {
     }
 
     public void setCreated_at(Date created_at) { this.created_at = created_at; }
+
+    public void setIsPaid(Boolean paid) {
+        isPaid = paid;
+    }
+
+    public void setIsDelivered(Boolean delivered) {
+        isDelivered = delivered;
+    }
+
+    public Boolean getIsDelivered() {
+        return isDelivered;
+    }
+
+    public Boolean getIsPaid() {
+        return isPaid;
+    }
 
     public Long getId() {
         return id;

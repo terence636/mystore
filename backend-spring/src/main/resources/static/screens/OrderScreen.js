@@ -97,7 +97,7 @@ const OrderScreen = {
     const payButton = document.getElementById('pay-button');
     payButton.addEventListener('click',async ()=>{
       showLoading();
-      // await payOrderSpring(request.id);
+      await payOrderSpring(request.id);
       hideLoading();
       showMessage('Thanks for your payment. Order confirmed')
       reRender(OrderScreen);
@@ -145,6 +145,11 @@ const OrderScreen = {
             <div>
               Payment Method : ${paymentMethod}
             </div>
+              ${
+                isPaid
+                  ? `<div class="success">Paid</div>`
+                  : `<div class="error">Not Paid</div>`
+              }
           </div>
           <div>
             <ul class="cart-list-container">
@@ -179,7 +184,9 @@ const OrderScreen = {
             <li><div>Items</div><div>$${itemsPrice?.toFixed(2)}</div></li>
             <li><div>Shipping</div><div>$${shippingPrice?.toFixed(2)}</div></li>
             <li><div>Tax</div><div>$${taxPrice?.toFixed(2)}</div></li>
-            <li class="total"><div>Order Total</div><div>$${totalPrice?.toFixed(2)}</div></li>                  
+            <li class="total"><div>Order Total</div><div>$${totalPrice?.toFixed(
+              2
+            )}</div></li>                  
             <li><button class="primary fw" id="pay-button">PAY</button></li>
             <!--li><div class="primary fw" id="paypal-button"></div></li-->
             <li>

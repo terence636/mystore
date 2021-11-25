@@ -7,7 +7,6 @@ import {
 } from "../localStorage.js";
 import CheckoutSteps from "../components/CheckoutSteps.js";
 import { showLoading, hideLoading, showMessage } from "../utils.js";
-// import { createOrder } from "../api.js";
 import { createOrderSpring } from "../api_spring.js";
 
 const convertCartToOrder = () => {
@@ -52,7 +51,7 @@ const PlaceOrderScreen = {
         order.user = _id;
         // order.user = 1;
         showLoading();
-        console.log(order);
+        // console.log(order);
         const data = await createOrderSpring(order);
         hideLoading();
         if (data.error) {

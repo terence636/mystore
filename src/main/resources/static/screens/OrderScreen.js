@@ -5,12 +5,11 @@ import {
   showMessage,
   reRender,
 } from '../utils.js';
-// import { getPaypalClientId, payOrder, deliverOrder } from '../api.js';
 
 import {
   getOrderSpring,
   // getPaypalClientIdSpring,
-  // payOrderSpring,
+  payOrderSpring,
   deliverOrderSpring,
 } from "../api_spring.js";
 import { getUserInfo } from '../localStorage.js';
@@ -85,23 +84,25 @@ const OrderScreen = {
   after_render: async () => {
     const request = parseRequestUrl();
     if (document.getElementById('deliver-order-button')) {
-      document.addEventListener('click', async () => {
+      const deliverButton = document.getElementById("deliver-order-button");
+      deliverButton.addEventListener("click", async () => {
         showLoading();
         await deliverOrderSpring(request.id);
         hideLoading();
-        showMessage('Order Delivered.');
+        showMessage("Order Delivered.");
         reRender(OrderScreen);
       });
     }
-
-    const payButton = document.getElementById('pay-button');
-    payButton.addEventListener('click',async ()=>{
+    if(document.getElementById('pay-button')) {
+      const payButton = document.getElementById('pay-button');
+      payButton.addEventListener('click',async ()=>{
       showLoading();
-      // await payOrderSpring(request.id);
+      await payOrderSpring(request.id);
       hideLoading();
       showMessage('Thanks for your payment. Order confirmed')
       reRender(OrderScreen);
     })
+  }
   },
 
   render: async () => {
@@ -139,12 +140,22 @@ const OrderScreen = {
             <div>
             ${shipping}
             </div>
+            ${
+              isDelivered
+                ? `<div class="success">[ Delivered ]</div>`
+                : `<div class="error">[ Not Delivered ]</div>`
+            }
           </div>
           <div>
             <h2 class="font-bold">Payment</h2>
             <div>
               Payment Method : ${paymentMethod}
             </div>
+            ${
+              isPaid
+                ? `<div class="success">[ Paid ]</div>`
+                : `<div class="error">[ Not Paid ]</div>`
+            }
           </div>
           <div>
             <ul class="cart-list-container">
@@ -179,8 +190,14 @@ const OrderScreen = {
             <li><div>Items</div><div>$${itemsPrice?.toFixed(2)}</div></li>
             <li><div>Shipping</div><div>$${shippingPrice?.toFixed(2)}</div></li>
             <li><div>Tax</div><div>$${taxPrice?.toFixed(2)}</div></li>
-            <li class="total"><div>Order Total</div><div>$${totalPrice?.toFixed(2)}</div></li>                  
-            <li><button class="primary fw" id="pay-button">PAY</button></li>
+            <li class="total"><div>Order Total</div><div>$${totalPrice?.toFixed(
+              2
+            )}</div></li>                  
+            <li> ${
+              !isPaid
+                ? `<button class="primary fw" id="pay-button">Pay</button>`
+                : ""
+            }</li>
             <!--li><div class="primary fw" id="paypal-button"></div></li-->
             <li>
               ${

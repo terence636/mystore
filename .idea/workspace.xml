@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ea4162b-1f37-4c40-bef5-77e167c0f6ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/api_spring.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/api_spring.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/screens/OrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/screens/OrderScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/api_spring.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/api_spring.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/screens/OrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/screens/OrderScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +25,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/backend-spring" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">

@@ -69,8 +69,8 @@ const OrderListScreen = {
               <th>DATE</th>
               <th>TIME</th>
               <th>TOTAL</th>
-              <!--th>PAID</th-->
-              <!--th>DELIVERED</th-->
+              <th>PAID</th>
+              <th>DELIVERED</th>
               <th>ACTIONS</th>
             </tr>
           </thead>
@@ -88,16 +88,16 @@ const OrderListScreen = {
             <td>${printDate(order.createdAt)}</td>
             <td>${printTime(order.createdAt)}</td>
             <td>$${order.totalPrice}</td>
-            <!--td>${order.paidAt || "No"}</td-->
-            <!--td>${order.deliveryAt || "No"}</td-->
+            <td>${order.isPaid ? 'YES' : 'NO'}</td>
+            <td>${order.isDelivered ? 'YES' :'NO'}</td>
             <!--td><a href="/#/order/${order._id}">DETAILS</a> 
                 <span id="delete-order-${
                   order._id
                 }" class="px-6 cursor-pointer hover:text-yellow-500">DELETE</span>
             </td-->
             <td>
-            <button id="${order._id}" class="details-button">Details</button>
-            <button id="${order._id}" class="delete-button">Delete</button>
+            <button id="${order._id}" class="details-button p-1">Details</button>
+            <button id="${order._id}" class="delete-button p-1 ml-2">Delete</button>
             </td>
           </tr>
           `).join("\n")

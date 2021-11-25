@@ -337,7 +337,7 @@ export const getPaypalClientIdSpring = async () => {
 export const payOrderSpring = async (orderId, paymentResult=true) => {
   try {
     const { token } = getUserInfo();
-    const response = await fetch(`/api/orders/${orderId}/pay`, {
+    const response = await fetch(`/api/orders//pay${orderId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -71,13 +71,14 @@ class SingleOrder {
     private Float totalPrice;
     private String shipping;
     private String paymentMethod;
+    private Boolean isPaid;
     private ArrayList<OrderItem> orderItems;
     private Date createdAt;
 
     public SingleOrder() {}
     public SingleOrder(Long _id, Long user, Float itemsPrice, Float taxPrice,
                              Float shippingPrice, Float totalPrice, String shipping,
-                             String paymentMethod, ArrayList<OrderItem> orderItems, Date createdAt) {
+                             String paymentMethod, Boolean isPaid, ArrayList<OrderItem> orderItems, Date createdAt) {
         this._id = _id;
         this.user = user;
         this.itemsPrice = itemsPrice;
@@ -86,6 +87,7 @@ class SingleOrder {
         this.totalPrice = totalPrice;
         this.shipping = shipping;
         this.paymentMethod = paymentMethod;
+        this.isPaid = isPaid;
         this.orderItems = orderItems;
         this.createdAt = createdAt;
     }
@@ -99,6 +101,7 @@ class SingleOrder {
         this.totalPrice = orders.getTotalPrice();
         this.shipping = orders.getShippingAddress();
         this.paymentMethod = orders.getPaymentMethod();
+        this.isPaid = orders.getIsPaid();
         this.createdAt = orders.getCreated_at();
         this.orderItems = orderItems;
     }
@@ -134,6 +137,8 @@ class SingleOrder {
     public String getPaymentMethod() {
         return paymentMethod;
     }
+
+    public Boolean getIsPaid() { return isPaid; }
 
     public Date getCreatedAt() { return createdAt; }
 
@@ -199,7 +204,7 @@ public class OrderController {
     public ResponseEntity<?> createOrder(@RequestBody SingleOrder order) throws ServletException {
         // Save new order to order table
         Orders newOrder = new Orders(order.getUser(), order.getItemsPrice(), order.getTaxPrice(), order.getShippingPrice(),
-                                    order.getTotalPrice(), order.getShipping(), order.getPaymentMethod());
+                                    order.getTotalPrice(), order.getShipping(), order.getPaymentMethod(), order.getIsPaid());
         Orders savedOrder = ordersService.save(newOrder);
 
         // Save new order to join order product table
@@ -268,7 +273,33 @@ public class OrderController {
         return ResponseEntity.ok(singleOrder);
     }
 
-    
+    @PutMapping("/api/orders/pay/{id}")
+    public ResponseEntity<?> payOrders(@PathVariable Long id, @RequestBody Boolean payment) throws ServletException {
+        Orders order = ordersService.getOne(id);
+        order.setIsPaid(payment);
+        return ResponseEntity.ok(order);
+    }
+
+
+//      public ResponseEntity<?> updateOne(@PathVariable Long id, @RequestBody Products product) throws ServletException {
+//         Products productToUpdate = productsService.getOne(id);
+//         if ( productToUpdate == null ) {
+//             return new ResponseEntity(new ProductResponseBody("Product Not Found"), HttpStatus.NOT_FOUND);
+//         }
+
+//         productToUpdate.setName(product.getName());
+//         productToUpdate.setDescription(product.getDescription());
+//         productToUpdate.setBrand(product.getBrand());
+//         productToUpdate.setCategory(product.getCategory());
+//         productToUpdate.setCountInStock(product.getCountInStock());
+//         productToUpdate.setPrice(product.getPrice());
+// //        productToUpdate.setRating(product.getRating());
+// //        productToUpdate.setNumReviews(product.getNumReviews());
+//         productToUpdate.setImage(product.getImage());
+//         Products updatedProduct = productsService.create(productToUpdate);
+
+//         return new ResponseEntity( new ProductResponseBody("Product " + id + " Updated Successfully",updatedProduct),HttpStatus.OK);
+//     }
 
     @DeleteMapping("/api/orders/{id}")
     @ResponseBody
