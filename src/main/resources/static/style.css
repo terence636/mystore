@@ -630,7 +630,7 @@ td {
 }
 .dashboard-menu li.selected a {
   background-color: #c0c0c0;
-  color: #f08040;
+  color: #f040a7;
 }
 .dashboard-content {
   flex: 4 1 80rem;
