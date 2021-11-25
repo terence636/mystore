@@ -103,10 +103,10 @@ const CategoryJacketScreen = {
                 </svg>
             </span>
             <div class="dropdown-content absolute z-10 right-8 lg:right-40 bg-blue-100 shadow-2xl hidden">
-                <span class="block text-left px-4 py-4 hover:bg-blue-200 hover:cursor-pointer" id="jacket-asc-rating">Asc Rating</span>
-                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jacket-des-rating">Desc Rating</span>
-                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jacket-asc-price">Asc Price</span>
-                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jacket-des-price">Desc Price</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="jacket-asc-rating">Asc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="jacket-des-rating">Desc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="jacket-asc-price">Asc Price</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="jacket-des-price">Desc Price</span>
             </div>
         </div>
     </div>

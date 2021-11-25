@@ -752,8 +752,14 @@ td {
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
+
+/* .dropdown {
+  display: flex;
+  flex-direction: column;
+} */
 
 /* Error Page */
 .mainbox {

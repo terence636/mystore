@@ -94,10 +94,10 @@ const CategoryJeanScreen = {
                 </svg>
             </span>
             <div class="dropdown-content absolute z-10 right-8 lg:right-40 bg-blue-100 shadow-2xl hidden">
-                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-asc-rating">Asc Rating</span>
-                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-des-rating">Desc Rating</span>
-                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-asc-price">Asc Price</span>
-                <span class="block text-left px-4 py-4 hover:bg-blue-200" id="jean-des-price">Desc Price</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="jean-asc-rating">Asc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="jean-des-rating">Desc Rating</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="jean-asc-price">Asc Price</span>
+                <span class="block text-left px-4 py-4 hover:bg-blue-200 cursor-pointer" id="jean-des-price">Desc Price</span>
             </div>
         </div>
     </div>

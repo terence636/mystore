@@ -630,7 +630,7 @@ td {
 }
 .dashboard-menu li.selected a {
   background-color: #c0c0c0;
-  color: #f08040;
+  color: #f040a7;
 }
 .dashboard-content {
   flex: 4 1 80rem;
@@ -752,8 +752,14 @@ td {
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
+
+/* .dropdown {
+  display: flex;
+  flex-direction: column;
+} */
 
 /* Error Page */
 .mainbox {
