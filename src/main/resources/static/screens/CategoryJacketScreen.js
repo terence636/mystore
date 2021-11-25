@@ -86,10 +86,8 @@ const CategoryJacketScreen = {
     </div>
 
 
-
-
     <nav id="Category" class="w-full top-0 px-6 mt-20 border-t border-gray-400">
-    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
+    <div class="w-full container mx-auto flex items-center justify-between mt-0 px-2 py-3">
 
         <span class="uppercase tracking-wide font-bold text-gray-800 text-4xl ">
         Coolest jackets at unbeatable prices
@@ -112,12 +110,13 @@ const CategoryJacketScreen = {
     </div>
     </nav>
 
-    <ul class="products grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-x-8 sm:gap-x-24">
+     <div class="w-full">
+    <ul class="products grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-8 sm:gap-x-24">
        ${productsJacket
          .map(
            (product) =>
              `
-        <li>
+        <li class="">
         <div class="product">
     
             <a href="/#/product/${product.id}">
@@ -143,7 +142,7 @@ const CategoryJacketScreen = {
          )
          .join("\n")}
     </ul>
-   
+    </div>
     </div>
 </section>
     `;

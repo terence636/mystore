@@ -7,7 +7,7 @@ const Header = {
     return `
   <section class="relative">
   <nav class="flex justify-between  bg-green-1000 text-black fixed top-0 z-10 w-full">
-    <div class="px-5 xl:px-12 py-6 flex w-full justify-between items-center">
+    <div class="px-5 xl:px-12 py-6 flex w-screen justify-between items-center">
       <a class="text-3xl font-bold font-heading" href="/#/">
         <img class="h-10" src="/images/makito_logo/makito_trans_hori_black.png" alt="logo">
       </a>
@@ -53,7 +53,7 @@ const Header = {
             </svg>
             </a>`
         }
-        <div class="sm:hidden navbar-burger self-center" href="#">
+        <div class="md:hidden navbar-burger self-center" href="#">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 hover:text-orange-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>

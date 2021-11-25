@@ -103,7 +103,8 @@ const CategoryJeanScreen = {
     </div>
     </nav>
 
-     <ul class="products grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-x-8 sm:gap-x-24">
+    <div class="w-full">
+    <ul class="products grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-8 sm:gap-x-24">
           ${productsJean
             .map(
               (product) =>
@@ -129,19 +130,13 @@ const CategoryJeanScreen = {
                 })}</p>
                 <p class="product-brand">${product.brand}</p>
                 <p class="pt-1 text-gray-900">$${product.price.toFixed(2)}</p>
-     
         </div>
         </li>
         `
             )
             .join("\n")}
     </ul>
-
-
-
-   
-
-
+    </div>
     </div>
 </section>
     `;
