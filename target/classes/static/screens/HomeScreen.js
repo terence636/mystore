@@ -5,15 +5,14 @@
 // import data from '../data.js'
 
 const HomeCategoryScreen = {
-    after_render: () => {},
+  after_render: () => {},
 
-    render: async () => 
-        // const { value } = parseRequestUrl();
-        // const products = await getProductsSpring({ searchKeyword: value });
-        // if (products.error) {
-        //     return `<div class="error">${products.error}</div>`;
-        // }
-
+  render: async () =>
+    // const { value } = parseRequestUrl();
+    // const products = await getProductsSpring({ searchKeyword: value });
+    // if (products.error) {
+    //     return `<div class="error">${products.error}</div>`;
+    // }
 
     // const { productsTest } = data;
     // console.log(products);
@@ -89,10 +88,13 @@ const HomeCategoryScreen = {
         <a href="/#/storejackets">
         <div class="img_jackets hover:grow hover:shadow-lg"></div>
             <span class="title_jacket">Jackets</span>
-            <span class="copy_jacket">Impress at work by ordering these business style jackets that are smart, comfortable and convenient. 
+        
+            <span class="hidden sm:inline-block copy_jacket">Impress at work by ordering these business style jackets that are smart, comfortable and convenient. 
             You can enjoy being warm-hearted in the light color jackets, you can take the men puff jackets when you are in need of wind protection, 
             you can take the jacket front vest when you have to walk in the cold place, the chunky men's sweaters are convenient to wear with any outfit.
+
             </span></a>
+        
 
         <!-- Tshirts category-->
         <div class="bkgd_tshirts"></div>
@@ -115,7 +117,7 @@ const HomeCategoryScreen = {
             </span></a>
     </div>
 
-           <br> <div class="container mx-auto bg-white pt-8 border-t border-gray-400">
+           <br> <div class="container mx-auto bg-white pt-8 border-t border-gray-400" style="max-width:1400px;">
                 <div class="container flex px-3 pt-8 ">
                     <div class="w-full mx-auto flex justify-between flex-wrap">
                         <div class="flex w-1/2">
@@ -128,17 +130,17 @@ const HomeCategoryScreen = {
                                     Singapore 321046<br>
                                     Tel: 6281 4579<br>
                                 </p>
-                                <p class="pt-8">
-                                    <h3 class="pb-4 font-bold text-gray-900">Operating Hours</h3>
-                                    Mondays to Fridays (exclude Public Holidays)<br>
-                                    9am to 6pm<br>
-                                </p>
                             </div>
                         </div>
                         <div class="min-w-sm pt-8 sm:pt-0 ">
                             <div class="px-3 md:px-0">
                                 <h3 class="font-bold text-gray-900">Visit us @ FB</h3>
                                 <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Makito@facebook.com</a>
+                                    <p class="pt-8">
+                                    <h3 class="pb-4 font-bold text-gray-900">Operating Hours</h3>
+                                    Mondays to Fridays (exclude Public Holidays)<br>
+                                    9am to 6pm<br>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -148,6 +150,6 @@ const HomeCategoryScreen = {
     </div>
     </section>    
     </ul>`,
-}
+};
 
 export default HomeCategoryScreen;

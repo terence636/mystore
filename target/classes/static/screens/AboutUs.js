@@ -1,5 +1,5 @@
 const AboutUs = {
-  render: () =>`<div class="bg-white pt-8" id="aboutus">
+  render: () => `<div class="bg-white pt-8" id="aboutus">
   <div class="container pt-8 px-6 mx-auto border-t border-gray-400">
   <img src = "https://img.shein.com/images2/2018/11/29/15434606131933594897.jpg"><br>
       <h3 class="font-bold text-gray-900">About us</h3>
@@ -36,7 +36,7 @@ const AboutUs = {
           </div>
           </div>
 
- <br> <div class="container mx-auto bg-white pt-8 border-t border-gray-400">
+ <br> <div class="container mx-auto bg-white pt-8 border-t border-gray-400" style="max-width:1400px;">
       <div class="container flex px-3 pt-8 ">
           <div class="w-full mx-auto flex justify-between flex-wrap">
               <div class="flex w-1/2">
@@ -49,17 +49,17 @@ const AboutUs = {
                           Singapore 321046<br>
                           Tel: 6281 4579<br>
                       </p>
-                      <p class="pt-8">
-                          <h3 class="pb-4 font-bold text-gray-900">Operating Hours</h3>
-                          Mondays to Fridays (exclude Public Holidays)<br>
-                          9am to 6pm<br>
-                      </p>
                   </div>
               </div>
               <div class="min-w-sm pt-8 sm:pt-0 ">
                   <div class="px-3 md:px-0">
                       <h3 class="font-bold text-gray-900">Visit us @ FB</h3>
                       <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Makito@facebook.com</a>
+                      <p class="pt-8">
+                        <h3 class="pb-4 font-bold text-gray-900">Operating Hours</h3>
+                        Mondays to Fridays (exclude Public Holidays)<br>
+                        9am to 6pm<br>
+                      </p>
                   </div>
               </div>
           </div>
@@ -70,7 +70,6 @@ const AboutUs = {
 </section>    
 </ul>`,
   after_render: () => {},
-
 };
 
 export default AboutUs;
