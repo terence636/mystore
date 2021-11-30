@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-alert */
 import DashboardMenu from '../components/DashboardMenu.js';
-import { getProductsSpring, deleteProductSpring } from '../api_spring.js';
+import { getProducts, deleteProduct } from '../api.js';
 import { showLoading, hideLoading, reRender, showMessage } from '../utils.js';
 
 const ProductListScreen = {
@@ -9,7 +9,6 @@ const ProductListScreen = {
     document
       .getElementById('create-product-button')
       .addEventListener('click', async () => {
-        // const data = await createProductSpring();
         document.location.hash = `/product/999/create`;
       });
     const editButtons = document.getElementsByClassName('edit-button');
@@ -23,12 +22,11 @@ const ProductListScreen = {
       deleteButton.addEventListener('click', async () => {
         if (confirm('Are you sure to delete this product?')) {
           showLoading();
-          const data = await deleteProductSpring(deleteButton.id);
+          const data = await deleteProduct(deleteButton.id);
           if (data.error) {
             showMessage(data.error);
           } else {
             showMessage(data.message)
-            // console.log({data})
             reRender(ProductListScreen);
           }
           hideLoading();
@@ -37,8 +35,7 @@ const ProductListScreen = {
     });
   },
   render: async () => {
-    const products = await getProductsSpring();
-    // console.log(products)
+    const products = await getProducts();
     return `
     <div class="dashboard">
     ${DashboardMenu.render({ selected: 'products' })}

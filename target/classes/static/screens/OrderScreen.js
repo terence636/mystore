@@ -7,78 +7,11 @@ import {
 } from '../utils.js';
 
 import {
-  getOrderSpring,
-  // getPaypalClientIdSpring,
-  payOrderSpring,
-  deliverOrderSpring,
-} from "../api_spring.js";
+  getOrder,
+  payOrder,
+  deliverOrder,
+} from "../api.js";
 import { getUserInfo } from '../localStorage.js';
-
-// const handlePayment = (clientId, totalPrice) => {
-//   window.paypal.Button.render(
-//     {
-//       env: "sandbox",
-//       client: {
-//         sandbox: clientId,
-//         production: "",
-//       },
-//       locale: "en_US",
-//       style: {
-//         size: "responsive",
-//         color: "gold",
-//         shape: "pill",
-//       },
-
-//       commit: true,
-//       payment(data, actions) {
-//         return actions.payment.create({
-//           transactions: [
-//             {
-//               amount: {
-//                 total: totalPrice,
-//                 currency: "USD",
-//               },
-//             },
-//           ],
-//         });
-//       },
-//       onAuthorize(data, actions) {
-//         return actions.payment.execute().then(async () => {
-//           showLoading();
-//           await payOrderSpring(parseRequestUrl().id, {
-//             orderID: data.orderID,
-//             payerID: data.payerID,
-//             paymentID: data.paymentID,
-//           });
-//           hideLoading();
-//           showMessage("Payment was successfull.", () => {
-//             // eslint-disable-next-line no-use-before-define
-//             reRender(OrderScreen);
-//           });
-//         });
-//       },
-//     },
-//     "#paypal-button"
-//   ).then(() => {
-//     hideLoading();
-//   });
-// };
-
-// const addPaypalSdk = async (totalPrice) => {
-//   const {clientId} = await getPaypalClientIdSpring();
-//   console.log(clientId)
-//   showLoading();
-//   if (!window.paypal) {
-//     const script = document.createElement("script");
-//     script.type = "text/javascript";
-//     script.src = "https://www.paypalobjects.com/api/checkout.js";
-//     script.async = true;
-//     script.onload = () => handlePayment(clientId, totalPrice);
-//     document.body.appendChild(script);
-//   } else {
-//     handlePayment(clientId, totalPrice);
-//   }
-// };
 
 const OrderScreen = {
   after_render: async () => {
@@ -87,7 +20,7 @@ const OrderScreen = {
       const deliverButton = document.getElementById("deliver-order-button");
       deliverButton.addEventListener("click", async () => {
         showLoading();
-        await deliverOrderSpring(request.id);
+        await deliverOrder(request.id);
         hideLoading();
         showMessage("Order Delivered.");
         reRender(OrderScreen);
@@ -97,9 +30,9 @@ const OrderScreen = {
       const payButton = document.getElementById('pay-button');
       payButton.addEventListener('click',async ()=>{
       showLoading();
-      await payOrderSpring(request.id);
+      await payOrder(request.id);
       hideLoading();
-      showMessage('Thanks for your payment. Order confirmed')
+      showMessage('Thank you for your payment. Order confirmed')
       reRender(OrderScreen);
     })
   }
@@ -121,10 +54,7 @@ const OrderScreen = {
       // deliveredAt,
       isPaid,
       // paidAt,
-    } = await getOrderSpring(request.id);
-    // if (!isPaid) {
-    //   addPaypalSdk(totalPrice);
-    // }
+    } = await getOrder(request.id);
     return `
     <div>
       <div class="order">

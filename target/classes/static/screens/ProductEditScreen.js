@@ -4,7 +4,7 @@ import {
   showMessage,
   hideLoading,
 } from "../utils.js";
-import { getProductSpring, updateProductSpring } from "../api_spring.js";
+import { getProduct, updateProduct } from "../api.js";
 
 const ProductEditScreen = {
   after_render: () => {
@@ -14,7 +14,7 @@ const ProductEditScreen = {
       .addEventListener("submit", async (e) => {
         e.preventDefault();
         showLoading();
-        const data = await updateProductSpring({
+        const data = await updateProduct({
           id: request.id,
           name: document.getElementById("name").value,
           price: document.getElementById("price").value,
@@ -36,26 +36,10 @@ const ProductEditScreen = {
     .addEventListener("click", ()=>{
       document.location.hash = `/productlist`;
     })
-    // document
-    //   .getElementById("image-file")
-    //   .addEventListener("change", async (e) => {
-    //     const file = e.target.files[0];
-    //     const formData = new FormData();
-    //     formData.append("image", file);
-    //     showLoading();
-    //     const data = await uploadProductImage(formData);
-    //     hideLoading();
-    //     if (data.error) {
-    //       showMessage(data.error);
-    //     } else {
-    //       showMessage("Image uploaded successfully.");
-    //       document.getElementById("image").value = data.image;
-    //     }
-    //   });
   },
   render: async () => {
     const request = parseRequestUrl();
-    const product = await getProductSpring(request.id);
+    const product = await getProduct(request.id);
     return `
     <div class="content">
       <div class="form-container">

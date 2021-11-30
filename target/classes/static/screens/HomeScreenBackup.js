@@ -1,6 +1,5 @@
 import Rating from '../components/Rating.js';
-// import { getProducts } from "../api.js";
-import { getProductsSpring } from "../api_spring.js";
+import { getProducts } from "../api.js";
 import { parseRequestUrl } from "../utils.js";
 
 // import data from '../data.js'
@@ -10,7 +9,7 @@ const HomeScreen = {
 
   render: async () => {
     const { value } = parseRequestUrl();
-    const products = await getProductsSpring({ searchKeyword: value });
+    const products = await getProducts({ searchKeyword: value });
     if (products.error) {
       return `<div class="error">${products.error}</div>`;
     }

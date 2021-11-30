@@ -7,12 +7,11 @@ import {
 } from "../localStorage.js";
 import CheckoutSteps from "../components/CheckoutSteps.js";
 import { showLoading, hideLoading, showMessage } from "../utils.js";
-import { createOrderSpring } from "../api_spring.js";
+import { createOrder } from "../api.js";
 
 const convertCartToOrder = () => {
-  // const orderItems = getCartItems();
   const orderItems = getCartItemsWithoutCountInStock();
-  console.log(orderItems)
+  // console.log(orderItems)
   if (orderItems.length === 0) {
     document.location.hash = "/cart";
   }
@@ -49,10 +48,8 @@ const PlaceOrderScreen = {
         const order = convertCartToOrder();
         const { _id } = getUserInfo();
         order.user = _id;
-        // order.user = 1;
         showLoading();
-        // console.log(order);
-        const data = await createOrderSpring(order);
+        const data = await createOrder(order);
         hideLoading();
         if (data.error) {
           showMessage(data.error);
@@ -72,8 +69,6 @@ const PlaceOrderScreen = {
       taxPrice,
       totalPrice,
     } = convertCartToOrder();
-      // ${shipping.address}, ${shipping.city}, ${shipping.postalCode}, 
-      //        ${shipping.country}
     return `
     <div>
       ${CheckoutSteps.render({

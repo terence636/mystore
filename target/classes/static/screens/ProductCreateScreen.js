@@ -5,7 +5,7 @@ import {
   showMessage,
   hideLoading,
 } from "../utils.js";
-import { createProductSpring } from "../api_spring.js";
+import { createProduct } from "../api.js";
 
 const ProductCreateScreen = {
   after_render: () => {
@@ -17,7 +17,7 @@ const ProductCreateScreen = {
         if(e.target.id === 'back-button')
           return;
         showLoading();
-        const data = await createProductSpring({
+        const data = await createProduct({
           id: request.id,
           name: document.getElementById("name").value,
           price: document.getElementById("price").value,
@@ -40,26 +40,8 @@ const ProductCreateScreen = {
       e.preventDefault();
       document.location.hash = `/productlist`;
     })
-    // document
-    //   .getElementById("image-file")
-    //   .addEventListener("change", async (e) => {
-    //     const file = e.target.files[0];
-    //     const formData = new FormData();
-    //     formData.append("image", file);
-    //     showLoading();
-    //     const data = await uploadProductImage(formData);
-    //     hideLoading();
-    //     if (data.error) {
-    //       showMessage(data.error);
-    //     } else {
-    //       showMessage("Image uploaded successfully.");
-    //       document.getElementById("image").value = data.image;
-    //     }
-    //   });
   },
   render: async () => {
-    // const request = parseRequestUrl();
-    // const product = await getProductSpring(request.id);
     return `
     <div class="content">
       <div class="form-container">

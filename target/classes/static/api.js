@@ -1,9 +1,9 @@
-import { apiUrl } from "./config.js";
 import { getUserInfo } from "./localStorage.js"
 
+// PRODUCT API
 export const getProduct = async (id) => {
   try {
-    const response = await fetch(`${apiUrl}/api/products/${id}`, {
+    const response = await fetch(`/api/products/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -11,7 +11,7 @@ export const getProduct = async (id) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
     // return data;
@@ -21,12 +21,15 @@ export const getProduct = async (id) => {
   }
 };
 
-export const getProducts = async ({ searchKeyword = "" }) => {
+export const getProducts = async (searchKeyword = "") => {
   try {
-    let queryString = "?";
-    if (searchKeyword) queryString += `searchKeyword=${searchKeyword}&`;
+    let queryString = "?search";
+    if (searchKeyword) 
+      queryString += `=${searchKeyword}`;
+    else
+      queryString += `=all`
 
-    const response = await fetch(`${apiUrl}/api/products${queryString}`, {
+    const response = await fetch(`/api/products${queryString}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +37,7 @@ export const getProducts = async ({ searchKeyword = "" }) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -43,12 +46,96 @@ export const getProducts = async ({ searchKeyword = "" }) => {
   }
 };
 
-// { email, password })
-export const signin = async (params) => {
-
+export const createProduct = async (product) => {
   try {
-    const response = await fetch(`${apiUrl}/api/users/signin`, {
+    const { token } = getUserInfo();
+    const response = await fetch(`/api/products`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(product),
+    });
+    if (!response.ok) {
+      const msg = JSON.parse(await response.text());
+      throw new Error(`${msg.message}`);
+    }
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+    return { error: err.message };
+  }
+};
 
+export const updateProduct = async (product) => {
+  try {
+    const { token } = getUserInfo();
+    const response = await fetch(`/api/products/${product.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(product),
+    });
+    if (!response.ok) {
+      const msg = JSON.parse(await response.text());
+      throw new Error(`${msg.message}`);
+    }
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+    return { error: err.message };
+  }
+};
+
+export const deleteProduct = async (productId) => {
+  try {
+    const { token } = getUserInfo();
+    const response = await fetch(`/api/products/${productId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (!response.ok) {
+      const msg = JSON.parse(await response.text());
+      throw new Error(`${msg.message}`);
+    }
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+    return { error: err.message };
+  }
+};
+
+// USER API
+// { email, password })
+export const getUsers = async () => {
+  try {
+    const response = await fetch(`/api/users/`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      const msg = JSON.parse(await response.text());
+      throw new Error(`${msg.message}`);
+    }
+    return await response.json();
+    // return data;
+  } catch (err) {
+    console.log(err);
+    return { error: err.message };
+  }
+};
+
+export const signin = async (params) => {
+  try {
+    const response = await fetch(`/users/auth`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +144,7 @@ export const signin = async (params) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -66,9 +153,9 @@ export const signin = async (params) => {
   }
 };
 
-export const register = async ({ name, email, password }) => {
+export const register = async ({ name, email, password, isAdmin }) => {
   try {
-    const response = await fetch(`${apiUrl}/api/users/register`, {
+    const response = await fetch(`/users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,11 +164,12 @@ export const register = async ({ name, email, password }) => {
         name,
         email,
         password,
+        isAdmin
       }),
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -90,10 +178,10 @@ export const register = async ({ name, email, password }) => {
   }
 };
 
-export const update = async ({ name, email, password }) => {
+export const update = async ({ name, email, password, isAdmin }) => {
   try {
     const { _id, token } = getUserInfo();
-    const response = await fetch(`${apiUrl}/api/users/${_id}/`, {
+    const response = await fetch(`/api/users/${_id}/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -103,11 +191,12 @@ export const update = async ({ name, email, password }) => {
         name,
         email,
         password,
+        isAdmin,
       }),
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -116,10 +205,11 @@ export const update = async ({ name, email, password }) => {
   }
 };
 
+// ORDER API
 export const createOrder = async (order) => {
   try {
     const { token } = getUserInfo();
-    const response = await fetch(`${apiUrl}/api/orders`, {
+    const response = await fetch(`/api/orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -130,7 +220,7 @@ export const createOrder = async (order) => {
     // console.log(response)
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -142,7 +232,7 @@ export const createOrder = async (order) => {
 export const getOrders = async () => {
   try {
     const { token } = getUserInfo();
-    const response = await fetch(`${apiUrl}/api/orders`, {
+    const response = await fetch(`/api/orders`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -151,7 +241,7 @@ export const getOrders = async () => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -163,7 +253,7 @@ export const getOrders = async () => {
 export const getOrder = async (id) => {
   try {
     const { token } = getUserInfo();
-    const response = await fetch(`${apiUrl}/api/orders/${id}`, {
+    const response = await fetch(`/api/orders/${id}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -171,7 +261,7 @@ export const getOrder = async (id) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -182,16 +272,17 @@ export const getOrder = async (id) => {
 
 export const getMyOrders = async () => {
   try {
-    const { token } = getUserInfo();
-    const response = await fetch(`${apiUrl}/api/orders/mine`, {
+    const { token, _id } = getUserInfo();
+    // console.log(_id)
+    const response = await fetch(`/api/orders/mine/${_id}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     });
     if (!response.ok) {
-      const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      const msg = JSON.parse(await response.text()); 
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -203,7 +294,7 @@ export const getMyOrders = async () => {
 export const deleteOrder = async (orderId) => {
   try {
     const { token } = getUserInfo();
-    const response = await fetch(`${apiUrl}/api/orders/${orderId}`, {
+    const response = await fetch(`/api/orders/${orderId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -212,7 +303,7 @@ export const deleteOrder = async (orderId) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -221,33 +312,32 @@ export const deleteOrder = async (orderId) => {
   }
 };
 
-export const getPaypalClientId = async () => {
-  try {
-  const response = await fetch(
-    `${apiUrl}/api/paypal/clientId`, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  if (!response.ok) {
-    const msg = JSON.parse(await response.text());
-    throw new Error(`${response.status} ${msg.message}`);
-  }
-  return await response.json();
-  } catch (err) {
-    console.log(err);
-    return { error: err.message };
-  }
+// export const getPaypalClientId= async () => {
+//   try {
+//   const response = await fetch(`/api/paypal/clientId`, {
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   if (!response.ok) {
+//     const msg = JSON.parse(await response.text());
+//     throw new Error(`${response.status} ${msg.message}`);
+//   }
+//   return await response.json();
+//   } catch (err) {
+//     console.log(err);
+//     return { error: err.message };
+//   }
   // if (response.statusText !== "OK") {
   //   throw new Error(response.data.message);
   // }
   // return response.data.clientId;
-};
+// };
 
-export const payOrder = async (orderId, paymentResult) => {
+export const payOrder = async (orderId, paymentResult=true) => {
   try {
     const { token } = getUserInfo();
-    const response = await fetch(`${apiUrl}/api/orders/${orderId}/pay`, {
+    const response = await fetch(`/api/orders/pay/${orderId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -257,7 +347,7 @@ export const payOrder = async (orderId, paymentResult) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -265,10 +355,11 @@ export const payOrder = async (orderId, paymentResult) => {
     return { error: err.message };
   }
 };
+
 export const deliverOrder = async (orderId) => {
   try {
     const { token } = getUserInfo();
-    const response = await fetch(`${apiUrl}/api/orders/${orderId}/deliver`, {
+    const response = await fetch(`/api/orders/deliver/${orderId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -277,7 +368,7 @@ export const deliverOrder = async (orderId) => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {
@@ -289,7 +380,7 @@ export const deliverOrder = async (orderId) => {
 export const getSummary = async () => {
   try {
     const { token } = getUserInfo();
-    const response = await fetch(`${apiUrl}/api/orders/summary`, {
+    const response = await fetch(`/api/orders/summary`, {
       headers: {
         Authorization: `Bearer ${token}`,
         "content-type": "application/json",
@@ -297,7 +388,7 @@ export const getSummary = async () => {
     });
     if (!response.ok) {
       const msg = JSON.parse(await response.text());
-      throw new Error(`${response.status} ${msg.message}`);
+      throw new Error(`${msg.message}`);
     }
     return await response.json();
   } catch (err) {

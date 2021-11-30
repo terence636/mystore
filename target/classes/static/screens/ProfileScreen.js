@@ -2,8 +2,7 @@
 /* eslint-disable no-alert */
 /* eslint-disable func-names */
 /* eslint-disable object-shorthand */
-// import { update } from '../api.js';
-import { updateSpring, getMyOrdersSpring, deleteOrderSpring } from "../api_spring.js";
+import { update, getMyOrders, deleteOrder } from "../api.js";
 import { clearUser, getUserInfo, setUserInfo } from '../localStorage.js';
 import { showLoading, hideLoading, showMessage, redirectUser, reRender, printDate, printTime  } from '../utils.js';
 
@@ -25,7 +24,7 @@ const ProfileScreen = {
         e.preventDefault();
         showLoading();
         const { isAdmin }  = getUserInfo(); 
-        const data = await updateSpring({
+        const data = await update({
           name: document.getElementById('name').value,
           email: document.getElementById('email').value,
           password: document.getElementById('password').value,
@@ -44,8 +43,8 @@ const ProfileScreen = {
         const orderId = document.getElementById(`delete-order-${order._id}`)
         orderId.addEventListener('click', async ()=>{
           if (confirm('Are you sure to delete this order?')) {
-          const { message } = await deleteOrderSpring(order._id)
-          console.log(message)
+          const { message } = await deleteOrder(order._id)
+          // console.log(message)
           showMessage(message)
           reRender(ProfileScreen)
           }
@@ -66,7 +65,7 @@ const ProfileScreen = {
     if (!name) {
       document.location.hash = "/";
     }
-    const orders = await getMyOrdersSpring();
+    const orders = await getMyOrders();
     this.orders = orders;
     return `
     <div class="content profile">

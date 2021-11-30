@@ -1,26 +1,8 @@
-// import Rating from "../components/Rating.js";
-// import { getProductsSpring } from "../api_spring.js";
-// import { parseRequestUrl } from "../utils.js";
-
-// import data from '../data.js'
-
 const HomeCategoryScreen = {
   after_render: () => {},
 
   render: async () =>
-    // const { value } = parseRequestUrl();
-    // const products = await getProductsSpring({ searchKeyword: value });
-    // if (products.error) {
-    //     return `<div class="error">${products.error}</div>`;
-    // }
-
-    // const { productsTest } = data;
-    // console.log(products);
-    `
-
-
-    
-    <ul class="products">
+    `<ul class="products">
 
     <!--homescreen products sections-->
     <section class="bg-white py-8">

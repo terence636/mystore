@@ -1,6 +1,6 @@
 import { parseRequestUrl, reRender }  from "../utils.js";
 // import { getProduct } from '../api.js';
-import { getProductSpring } from "../api_spring.js";
+import { getProduct } from "../api.js";
 import { getCartItems, setCartItems } from "../localStorage.js";
 
 
@@ -64,7 +64,7 @@ const CartScreen = {
   render: async () => {
     const request = parseRequestUrl();
     if(request.id) {
-      const product = await getProductSpring(request.id);
+      const product = await getProduct(request.id);
       addToCart({
         productId: product.id,
         name: product.name,

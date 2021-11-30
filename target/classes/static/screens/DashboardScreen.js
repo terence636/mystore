@@ -1,37 +1,12 @@
 /* eslint-disable no-new */
 import DashboardMenu from '../components/DashboardMenu.js';
-import { getSummarySpring } from '../api_spring.js';
+import { getSummary } from '../api.js';
 
 let summary = {};
 const DashboardScreen = {
-  // after_render: () => {
-  //   new Chartist.Line(
-  //     '.ct-chart-line',
-  //     {
-  //       labels: summary.dailyOrders.map((x) => x._id),
-  //       series: [summary.dailyOrders.map((x) => x.sales)],
-  //     },
-  //     {
-  //       showArea: true,
-  //     }
-  //   );
-  //   new Chartist.Pie(
-  //     '.ct-chart-pie',
-  //     {
-  //       labels: summary.productCategories.map((x) => x._id),
-  //       series: summary.productCategories.map((x) => x.count),
-  //     },
-  //     {
-  //       donut: true,
-  //       donutWidth: 60,
-  //       startAngle: 270,
-  //       showLabel: true,
-  //       donutSolid: true,
-  //     }
-  //   );
-  // },
+
   render: async () => {
-    summary = await getSummarySpring();
+    summary = await getSummary();
     return `
     <div class="dashboard">
       ${DashboardMenu.render({ selected: 'dashboard' })}

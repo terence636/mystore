@@ -1,10 +1,8 @@
 /* eslint-disable func-names */
 /* eslint-disable object-shorthand */
 import Rating from "../components/Rating.js";
-import { getProductsSpring } from "../api_spring.js";
+import { getProducts } from "../api.js";
 import { reRender } from "../utils.js";
-
-// import data from '../data.js'
 
 const CategoryJacketScreen = {
     sortTshirt:"none",
@@ -37,15 +35,9 @@ const CategoryJacketScreen = {
 
 
     render: async function() {
-      // const { value } = parseRequestUrl();
-      // const products = await getProductsSpring({ searchKeyword: "all" });
-      // if (products.error) {
-      //     return `<div class="error">${products.error}</div>`;
-      // }
 
-    const productsJacket = await getProductsSpring("jacket");
+    const productsJacket = await getProducts("jacket");
     if (productsJacket.error) {return `<div class="error">${productsJacket.error}</div>`;}
-    console.log({ productsJacket });
     if(this.sortJacket === "ascPrice")
         productsJacket.sort((a, b) => a.price - b.price);
     if (this.sortJacket === "desPrice")
@@ -54,9 +46,6 @@ const CategoryJacketScreen = {
         productsJacket.sort((a, b) => a.rating - b.rating);
     if (this.sortJacket === "desRating")
         productsJacket.sort((a, b) => b.rating - a.rating);  
-
-      // const { products } = data;
-      // console.log(products);
     return `
 
 

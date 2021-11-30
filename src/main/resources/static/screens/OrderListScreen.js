@@ -3,10 +3,10 @@
 /* eslint-disable no-alert */
 import DashboardMenu from '../components/DashboardMenu.js';
 import {
-  getOrdersSpring,
-  deleteOrderSpring,
-  getUsersSpring,
-} from "../api_spring.js";
+  getOrders,
+  deleteOrder,
+  getUsers,
+} from "../api.js";
 import {
   showLoading,
   hideLoading,
@@ -30,7 +30,7 @@ const OrderListScreen = {
       deleteButton.addEventListener('click', async () => {
         if (confirm('Are you sure to delete this order?')) {
           showLoading();
-          const data = await deleteOrderSpring(deleteButton.id);
+          const data = await deleteOrder(deleteButton.id);
           if (data.error) {
             showMessage(data.error);
           } else {
@@ -44,8 +44,8 @@ const OrderListScreen = {
     });
   },
   render: async () => {
-    const orders = await getOrdersSpring();
-    const users = await getUsersSpring();
+    const orders = await getOrders();
+    const users = await getUsers();
     if(orders.lenght !== 0) {
       orders.forEach(order => {
         const cust = users.filter(user=> user.id === order.user)

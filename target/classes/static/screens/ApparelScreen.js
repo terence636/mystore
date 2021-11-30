@@ -1,7 +1,7 @@
 /* eslint-disable func-names */
 /* eslint-disable object-shorthand */
 import Rating from "../components/Rating.js";
-import { getProductsSpring } from "../api_spring.js";
+import { getProducts } from "../api.js";
 import { reRender } from "../utils.js";
 
 const ApparelScreen = {
@@ -31,13 +31,7 @@ const ApparelScreen = {
     },
 
     render: async function() {
-      // const { value } = parseRequestUrl();
-      // const products = await getProductsSpring({ searchKeyword: "all" });
-      // if (products.error) {
-      //     return `<div class="error">${products.error}</div>`;
-      // }
-      console.log("render")
-    const products = await getProductsSpring("all");
+    const products = await getProducts("all");
     if (products.error) { return `<div class="error">${products.error}</div>`;}
     if(this.sort === "ascPrice")
         products.sort((a, b) => a.price - b.price);
